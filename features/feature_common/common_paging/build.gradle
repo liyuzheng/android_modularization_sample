@@ -1,20 +1,17 @@
 plugins {
-    id 'com.android.application'
+    id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
 }
 
 android {
-    namespace 'yz.l.fm'
+    namespace 'yz.l.common_paging'
     compileSdk rootProject.ext.compileSdkVersion
 
     defaultConfig {
-        applicationId "yz.l.fm"
-        minSdk rootProject.ext.compileSdkVersion
-        targetSdk rootProject.ext.minSdkVersion
-        versionCode 1
-        versionName "1.0"
+        minSdk rootProject.ext.minSdkVersion
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {

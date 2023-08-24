@@ -15,3 +15,12 @@ dependencyResolutionManagement {
 
 rootProject.name = "AndroidDemo"
 include ':app'
+include ':features'
+include ':core'
+include ':core:network'
+include ':features:feature_login'
+include ':data'
+include ':data:data_user'
+include ':features:feature_common'
+include ':features:feature_common:common_room_db'
+include ':features:feature_common:common_paging'
