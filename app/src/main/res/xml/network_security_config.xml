@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config xmlns:tools="http://schemas.android.com/tools">
+
+    <base-config
+        cleartextTrafficPermitted="true"
+        tools:ignore="InsecureBaseConfiguration">
+        <trust-anchors>
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
+
+    <debug-overrides>
+        <trust-anchors>
+            <certificates src="system" />
+            <certificates src="user" />
+        </trust-anchors>
+    </debug-overrides>
+
+    <domain-config cleartextTrafficPermitted="true">
+        <!-- 如果通过 option.setUrl 设置的 url 为 http 连接，
+        需要将此url，如 proxy.example.com 添加到 domain-config 中 -->
+        <domain includeSubdomains="true">fp-sa-proxy.fengkongcloud.com</domain>
+
+        <!-- 腾讯HttpDNS -->
+        <domain includeSubdomains="false">43.132.55.55</domain> <!--国际，主-->
+        <domain includeSubdomains="false">43.132.43.43</domain> <!--国际，备-->
+        <domain includeSubdomains="false">119.29.29.98</domain> <!--国内，主-->
+        <domain includeSubdomains="false">119.28.28.98</domain> <!--国内，备-->
+    </domain-config>
+
+</network-security-config>

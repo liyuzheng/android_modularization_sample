@@ -36,6 +36,8 @@ dependencies {
     implementation rootProject.ext.deps.androidCoreKtx
     implementation rootProject.ext.deps.androidAppCompat
     implementation rootProject.ext.deps.androidDesignLibrary
+    implementation rootProject.ext.deps.androidLifecycleRuntime
+    implementation rootProject.ext.deps.androidLifecycleViewModel
     implementation project(":features:feature_login")
     implementation project(":features:feature_lottery")
     implementation project(":features:feature_common:common_paging")
@@ -44,4 +46,5 @@ dependencies {
     implementation project(":core:core_router")
     implementation project(":core:network")
     implementation project(":data:data_user")
+    implementation project(":core:core_tool")
 }

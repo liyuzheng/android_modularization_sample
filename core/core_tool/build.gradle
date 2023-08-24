@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace 'yz.l.network'
+    namespace 'yz.l.core_tool'
     compileSdk rootProject.ext.compileSdkVersion
 
     defaultConfig {
@@ -33,9 +33,6 @@ dependencies {
     implementation rootProject.ext.deps.androidCoreKtx
     implementation rootProject.ext.deps.androidAppCompat
     implementation rootProject.ext.deps.androidDesignLibrary
-    implementation rootProject.ext.deps.okhttp
-    implementation rootProject.ext.deps.okhttpLoggingInterceptor
-    implementation rootProject.ext.deps.converter_gson
     implementation rootProject.ext.deps.gson
-    implementation project(":core:core_tool")
+
 }

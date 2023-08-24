@@ -6,66 +6,63 @@ rootProject.ext.minSdkVersion = 21
 rootProject.ext.GLIDE_VERSION = "4.13.2"
 rootProject.ext.lifecycle_version = "2.5.1"
 rootProject.ext.roomVersion = '2.5.2'
-
+rootProject.ext.kotlin_version = '1.8.0'
 rootProject.ext.deps = [
 
         /////////////////////////// Android官方库  //////////////////////////////////////////////////
         // android
-        androidCoreKtx          : 'androidx.core:core-ktx:1.9.0',
-        androidAnnotations      : 'androidx.annotation:annotation:1.6.0',
-        androidAppCompat        : 'androidx.appcompat:appcompat:1.6.1',
-        androidFragmentKtx      : 'androidx.fragment:fragment-ktx:1.5.5',
-        androidActivityKtx      : "androidx.activity:activity-ktx:1.6.1",
+        androidCoreKtx           : 'androidx.core:core-ktx:1.9.0',
+        androidAnnotations       : 'androidx.annotation:annotation:1.6.0',
+        androidAppCompat         : 'androidx.appcompat:appcompat:1.6.1',
+        androidFragmentKtx       : 'androidx.fragment:fragment-ktx:1.5.5',
+        androidActivityKtx       : "androidx.activity:activity-ktx:1.6.1",
 
-        androidLifecycleViewModel : "androidx.lifecycle:lifecycle-viewmodel-ktx:$rootProject.ext.lifecycle_version",
-        androidLifecycleRuntime   : "androidx.lifecycle:lifecycle-runtime-ktx:$rootProject.ext.lifecycle_version",
+        androidLifecycleViewModel: "androidx.lifecycle:lifecycle-viewmodel-ktx:$rootProject.ext.lifecycle_version",
+        androidLifecycleRuntime  : "androidx.lifecycle:lifecycle-runtime-ktx:$rootProject.ext.lifecycle_version",
 
 
         // widget
-        androidCardView         : 'androidx.cardview:cardview:1.0.0',
-        androidRecyclerView     : 'androidx.recyclerview:recyclerview:1.2.1',
-        androidPercent          : 'androidx.percentlayout:percentlayout:1.0.0',
-        androidGridLayout       : 'androidx.gridlayout:gridlayout:1.0.0',
-        androidConstraintLayout : 'androidx.constraintlayout:constraintlayout:2.0.4',
-        androidPalette          : 'androidx.palette:palette-ktx:1.0.0',
-        androidSwipe            : 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0',
+        androidCardView          : 'androidx.cardview:cardview:1.0.0',
+        androidRecyclerView      : 'androidx.recyclerview:recyclerview:1.2.1',
+        androidPercent           : 'androidx.percentlayout:percentlayout:1.0.0',
+        androidGridLayout        : 'androidx.gridlayout:gridlayout:1.0.0',
+        androidConstraintLayout  : 'androidx.constraintlayout:constraintlayout:2.0.4',
+        androidPalette           : 'androidx.palette:palette-ktx:1.0.0',
+        androidSwipe             : 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0',
 
-        androidDesignLibrary    : 'com.google.android.material:material:1.4.0',
-        androidFlexbox          : "com.google.android.flexbox:flexbox:3.0.0",
+        androidDesignLibrary     : 'com.google.android.material:material:1.4.0',
+        androidFlexbox           : "com.google.android.flexbox:flexbox:3.0.0",
 
         // emoji2
-        emoji2                  : "androidx.emoji2:emoji2:1.1.0",
-        emoji2_views            : "androidx.emoji2:emoji2-views:1.1.0",
-        emoji2_helper           : "androidx.emoji2:emoji2-views-helper:1.1.0",
+        emoji2                   : "androidx.emoji2:emoji2:1.1.0",
+        emoji2_views             : "androidx.emoji2:emoji2-views:1.1.0",
+        emoji2_helper            : "androidx.emoji2:emoji2-views-helper:1.1.0",
 
         /////////////////////////// 第三方开源库  ///////////////////////////////////////////////////
         // di 依赖注入
-        dagger                  : "com.google.dagger:dagger:2.44.2",
-        daggerCompiler          : "com.google.dagger:dagger-compiler:2.44.2",
+        dagger                   : "com.google.dagger:dagger:2.44.2",
+        daggerCompiler           : "com.google.dagger:dagger-compiler:2.44.2",
 
         // http
-        okhttp                  : "com.squareup.okhttp3:okhttp:3.12.13",
-        okio                    : "com.squareup.okio:okio:1.17.4",
-        okhttpLoggingInterceptor: "com.squareup.okhttp3:logging-interceptor:3.12.13",
-        networkConnectionClass  : "com.facebook.network.connectionclass:connectionclass:1.0.1",
-        retrofit2AdapterRxJava  : "com.squareup.retrofit2:adapter-rxjava2:2.6.4",
-        retrofit                : "com.squareup.retrofit2:retrofit:2.6.4",
-        converter_gson          : "com.squareup.retrofit2:converter-gson:2.6.4",
-
+        okhttp                   : "com.squareup.okhttp3:okhttp:4.9.0",
+        okhttpLoggingInterceptor : "com.squareup.okhttp3:logging-interceptor:4.9.0",
+        retrofit                 : "com.squareup.retrofit2:retrofit:2.9.0",
+        converter_gson           : "com.squareup.retrofit2:converter-gson:2.9.0",
         //json
-        gson                    : "com.google.code.gson:gson:2.8.0",
+        gson                     : "com.google.code.gson:gson:2.8.0",
 
         // glide
-        glide                   : "com.github.bumptech.glide:glide:$rootProject.ext.GLIDE_VERSION",
-        glideCompiler           : "com.github.bumptech.glide:compiler:$rootProject.ext.GLIDE_VERSION",
-        luban                   : 'com.ushowmedia.luban:luban:1.1.8.1',
+        glide                    : "com.github.bumptech.glide:glide:$rootProject.ext.GLIDE_VERSION",
+        glideCompiler            : "com.github.bumptech.glide:compiler:$rootProject.ext.GLIDE_VERSION",
+        luban                    : 'com.ushowmedia.luban:luban:1.1.8.1',
 
         // kv store
-        tencentMmkv             : "com.tencent:mmkv-static:1.2.16",
+        tencentMmkv              : "com.tencent:mmkv-static:1.2.16",
 
         //fileDownloader
-        fileDownloader          : "com.ushowmedia.okdownload:filedownloader:1.0.11",
-        okdownloadKernel        : 'com.ushowmedia.okdownload:okdownload:1.0.11',
-        okdownloadSqlite        : 'com.ushowmedia.okdownload:sqlite:1.0.8',
-        okdownloadOkhttp        : 'com.ushowmedia.okdownload:okhttp:1.0.8',
+        fileDownloader           : "com.ushowmedia.okdownload:filedownloader:1.0.11",
+        okdownloadKernel         : 'com.ushowmedia.okdownload:okdownload:1.0.11',
+        okdownloadSqlite         : 'com.ushowmedia.okdownload:sqlite:1.0.8',
+        okdownloadOkhttp         : 'com.ushowmedia.okdownload:okhttp:1.0.8',
+        kotlinReflect            : "org.jetbrains.kotlin:kotlin-reflect:$rootProject.kotlin_version"
 ]
