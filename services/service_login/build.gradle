@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace 'yz.l.data_user'
+    namespace 'yz.l.service_login'
     compileSdk rootProject.ext.compileSdkVersion
 
     defaultConfig {
@@ -33,4 +33,5 @@ dependencies {
     implementation rootProject.ext.deps.androidCoreKtx
     implementation rootProject.ext.deps.androidAppCompat
     implementation rootProject.ext.deps.androidDesignLibrary
+    implementation project(":core:core_router")
 }

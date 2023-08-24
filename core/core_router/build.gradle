@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace 'yz.l.data_user'
+    namespace 'yz.l.core_router'
     compileSdk rootProject.ext.compileSdkVersion
 
     defaultConfig {
