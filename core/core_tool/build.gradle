@@ -34,5 +34,7 @@ dependencies {
     implementation rootProject.ext.deps.androidAppCompat
     implementation rootProject.ext.deps.androidDesignLibrary
     implementation rootProject.ext.deps.gson
-
+    implementation rootProject.ext.deps.androidLifecycleRuntime
+    implementation rootProject.ext.deps.androidLifecycleViewModel
+    implementation rootProject.ext.deps.androidFragmentKtx
 }
