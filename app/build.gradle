@@ -38,6 +38,7 @@ dependencies {
     implementation rootProject.ext.deps.androidDesignLibrary
     implementation rootProject.ext.deps.androidLifecycleRuntime
     implementation rootProject.ext.deps.androidLifecycleViewModel
+    implementation rootProject.ext.deps.tencentMmkv
     implementation project(":features:feature_login")
     implementation project(":features:feature_lottery")
     implementation project(":features:feature_common:common_paging")

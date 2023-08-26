@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-parcelize'
 }
 
 android {
@@ -30,7 +31,9 @@ android {
 }
 
 dependencies {
-    implementation rootProject.ext.deps.androidCoreKtx
-    implementation rootProject.ext.deps.androidAppCompat
-    implementation rootProject.ext.deps.androidDesignLibrary
+    compileOnly rootProject.ext.deps.androidCoreKtx
+    compileOnly rootProject.ext.deps.androidAppCompat
+    compileOnly rootProject.ext.deps.androidDesignLibrary
+    compileOnly rootProject.ext.deps.tencentMmkv
+    compileOnly project(":core:core_tool")
 }

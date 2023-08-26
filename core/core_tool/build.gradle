@@ -30,11 +30,12 @@ android {
 }
 
 dependencies {
-    implementation rootProject.ext.deps.androidCoreKtx
-    implementation rootProject.ext.deps.androidAppCompat
-    implementation rootProject.ext.deps.androidDesignLibrary
-    implementation rootProject.ext.deps.gson
-    implementation rootProject.ext.deps.androidLifecycleRuntime
-    implementation rootProject.ext.deps.androidLifecycleViewModel
-    implementation rootProject.ext.deps.androidFragmentKtx
+    compileOnly rootProject.ext.deps.androidCoreKtx
+    compileOnly rootProject.ext.deps.androidAppCompat
+    compileOnly rootProject.ext.deps.androidDesignLibrary
+    compileOnly rootProject.ext.deps.gson
+    compileOnly rootProject.ext.deps.androidLifecycleRuntime
+    compileOnly rootProject.ext.deps.androidLifecycleViewModel
+    compileOnly rootProject.ext.deps.androidFragmentKtx
+    compileOnly rootProject.ext.deps.tencentMmkv
 }
