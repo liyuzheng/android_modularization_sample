@@ -75,7 +75,7 @@ class Repo {
         }
     }
 
-    private fun buildBody(body: MutableMap<String, Any>): MutableMap<String, Any> {
+    private fun buildBody(body: MutableMap<String, Any?>): MutableMap<String, Any?> {
         return body
     }
 

@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -27,12 +28,24 @@ android {
     kotlinOptions {
         jvmTarget = '17'
     }
+
+    dataBinding {
+        enabled = true
+    }
 }
 
 dependencies {
     implementation rootProject.ext.deps.androidCoreKtx
     implementation rootProject.ext.deps.androidAppCompat
     implementation rootProject.ext.deps.androidDesignLibrary
+    implementation rootProject.ext.deps.androidLifecycleViewModel
+    implementation rootProject.ext.deps.androidFragmentKtx
+
     implementation project(":core:core_router")
     implementation project(":services:service_login")
+    implementation project(":core:core_mvvm")
+    implementation project(":core:core_tool")
+    implementation project(":core:network")
+    implementation project(":data:data_common")
+    implementation project(":data:data_user")
 }

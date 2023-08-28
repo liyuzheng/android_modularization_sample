@@ -30,7 +30,7 @@ android {
 }
 
 dependencies {
-    implementation rootProject.ext.deps.androidCoreKtx
-    implementation rootProject.ext.deps.androidAppCompat
-    implementation rootProject.ext.deps.androidDesignLibrary
+    compileOnly rootProject.ext.deps.androidCoreKtx
+    compileOnly rootProject.ext.deps.androidAppCompat
+    compileOnly rootProject.ext.deps.androidDesignLibrary
 }

@@ -20,13 +20,13 @@ interface Api {
     @GET
     suspend fun get(
         @Url url: String,
-        @QueryMap body: MutableMap<String, Any>,
+        @QueryMap body: MutableMap<String, Any?>,
     ): String
 
     @POST
     suspend fun post(
         @Url url: String,
-        @Body body: MutableMap<String, Any>,
+        @Body body: MutableMap<String, Any?>,
     ): String
 
     @Multipart
@@ -39,18 +39,18 @@ interface Api {
     @PUT
     suspend fun put(
         @Url url: String,
-        @Body body: MutableMap<String, Any>,
+        @Body body: MutableMap<String, Any?>,
     ): String
 
     @DELETE
     suspend fun delete(
         @Url url: String,
-        @QueryMap body: MutableMap<String, Any>,
+        @QueryMap body: MutableMap<String, Any?>,
     ): String
 
     @HTTP(method = "DELETE", hasBody = true)
     suspend fun deleteBody(
         @Url url: String,
-        @Body body: MutableMap<String, Any>,
+        @Body body: MutableMap<String, Any?>,
     ): String
 }

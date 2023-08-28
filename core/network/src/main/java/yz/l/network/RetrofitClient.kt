@@ -1,7 +1,10 @@
 package yz.l.network
 
+import android.util.Log
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
+import yz.l.core_tool.ext.debug
 import java.util.concurrent.TimeUnit
 
 /**
@@ -12,12 +15,17 @@ object RetrofitClient {
     private const val BASE_URL = "http://www.baidu.com"
 
     private fun provideOkHttpClient(): OkHttpClient {
-        return OkHttpClient.Builder()
+        var builder = OkHttpClient.Builder()
             .connectTimeout(10, TimeUnit.SECONDS)
             .writeTimeout(10, TimeUnit.SECONDS)
             .readTimeout(10, TimeUnit.SECONDS)
             .retryOnConnectionFailure(true)
-            .build()
+        debug {
+            builder = builder.addInterceptor(HttpLoggingInterceptor().apply {
+                level = HttpLoggingInterceptor.Level.BODY
+            })
+        }
+        return builder.build()
     }
 
     fun provideRetrofit(): Retrofit {

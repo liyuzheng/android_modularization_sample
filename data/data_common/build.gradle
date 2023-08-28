@@ -1,10 +1,12 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'kotlin-parcelize'
 }
 
 android {
-    namespace 'yz.l.network'
+    namespace 'yz.l.data.common'
     compileSdk rootProject.ext.compileSdkVersion
 
     defaultConfig {
@@ -33,9 +35,9 @@ dependencies {
     compileOnly rootProject.ext.deps.androidCoreKtx
     compileOnly rootProject.ext.deps.androidAppCompat
     compileOnly rootProject.ext.deps.androidDesignLibrary
-    implementation rootProject.ext.deps.okhttp
-    implementation rootProject.ext.deps.okhttpLoggingInterceptor
-    implementation rootProject.ext.deps.converter_gson
-    compileOnly rootProject.ext.deps.gson
+    compileOnly rootProject.ext.deps.tencentMmkv
     compileOnly project(":core:core_tool")
+    compileOnly project(":features:feature_common:common_room_db")
+    compileOnly rootProject.ext.deps.roomRuntime
+    compileOnly rootProject.ext.deps.roomKtx
 }

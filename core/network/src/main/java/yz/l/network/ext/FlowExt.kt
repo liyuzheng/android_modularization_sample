@@ -17,6 +17,7 @@ inline fun <reified T : Any> Flow<T>.completedIn(
     scope: CoroutineScope,
     crossinline callback: (r: Result<T>) -> Unit
 ) {
+    callback(Result.Loading(true))
     this@completedIn.catch {
         val pair = it.toPair()
         if (pair.first == NetworkExceptionConstantCode.CANCEL) {
@@ -35,5 +36,6 @@ inline fun <reified T : Any> Flow<T>.completedIn(
         }
     }.onCompletion {
         callback(Result.Completion())
+        callback(Result.Loading(false))
     }.launchIn(scope).start()
 }

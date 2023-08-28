@@ -10,7 +10,7 @@ class BaseRequest {
 
     var file: File? = null
 
-    private var params = mutableMapOf<String, Any>()
+    private var params = mutableMapOf<String, Any?>()
 
     var contentType: MediaType? = null
 
@@ -26,7 +26,7 @@ class BaseRequest {
         file = init()
     }
 
-    fun params(init: () -> Pair<String, Any>) {
+    fun params(init: () -> Pair<String, Any?>) {
         val p = init()
         params[p.first] = p.second
     }
@@ -39,7 +39,7 @@ class BaseRequest {
         return "api:$api \n params :$params"
     }
 
-    fun reflectParameters(): MutableMap<String, Any> {
+    fun reflectParameters(): MutableMap<String, Any?> {
         return params
     }
 

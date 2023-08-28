@@ -1,7 +1,7 @@
 package yz.l.data_user
 
 import com.tencent.mmkv.MMKV
-import yz.l.core_tool.ext.MMKVReadWrite
+import yz.l.core_tool.MMKVReadWrite
 
 /**
  * desc:

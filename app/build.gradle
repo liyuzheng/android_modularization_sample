@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -13,7 +14,7 @@ android {
         targetSdk rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
-
+        multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -30,6 +31,9 @@ android {
     kotlinOptions {
         jvmTarget = '17'
     }
+    dataBinding {
+        enabled = true
+    }
 }
 
 dependencies {
@@ -42,13 +46,23 @@ dependencies {
     implementation rootProject.ext.deps.roomKtx
     implementation rootProject.ext.deps.tencentMmkv
     implementation rootProject.ext.deps.liveDataKtx
+    implementation rootProject.ext.deps.gson
+    implementation rootProject.ext.deps.workManager
+    implementation rootProject.ext.deps.workManagerKtx
+    implementation rootProject.ext.deps.workManagerMultiprocess
+
     implementation project(":features:feature_login")
     implementation project(":features:feature_lottery")
     implementation project(":features:feature_common:common_paging")
     implementation project(":features:feature_common:common_room_db")
+
     implementation project(":services:service_login")
+
     implementation project(":core:core_router")
     implementation project(":core:network")
-    implementation project(":data:data_user")
     implementation project(":core:core_tool")
+    implementation project(":core:core_mvvm")
+
+    implementation project(":data:data_user")
+    implementation project(":data:data_common")
 }

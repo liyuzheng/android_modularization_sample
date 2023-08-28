@@ -1,7 +1,9 @@
-package yz.l.core_tool.ext
+package yz.l.core_tool
 
 import android.os.Parcelable
 import com.tencent.mmkv.MMKV
+import yz.l.core_tool.ext.gson
+import yz.l.core_tool.ext.toJson
 import kotlin.properties.ReadWriteProperty
 import kotlin.reflect.KProperty
 
