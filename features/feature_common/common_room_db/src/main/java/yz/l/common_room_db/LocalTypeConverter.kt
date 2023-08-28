@@ -1,7 +1,7 @@
 package yz.l.common_room_db
 
 import androidx.room.TypeConverter
-import yz.l.core_tool.ext.gson
+import yz.l.core_tool.ext.toJson
 import yz.l.core_tool.ext.toObject
 import java.util.Date
 
@@ -19,7 +19,7 @@ open class LocalTypeConverter {
         src.toObject()
 
     @TypeConverter
-    fun strList2Json(data: List<String>?): String = gson.toJson(data ?: mutableListOf<String>())
+    fun strList2Json(data: List<String>?): String? = data?.toJson()
 
     @TypeConverter
     fun date2Long(date: Date?): Long {

@@ -13,9 +13,12 @@ val gson: Gson = GsonBuilder().apply {
     setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
     serializeSpecialFloatingPointValues()
 }.disableHtmlEscaping().create()
+
 inline fun <reified T> String?.toObject(): T? {
     this ?: return null
     return gson.transform {
         it.fromJson(this@toObject, T::class.java)
     }
 }
+
+fun Any.toJson(): String? = gson.toJson(this)

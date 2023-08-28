@@ -29,9 +29,9 @@ abstract class MMKVReadWrite<T>(private val key: String, private val defaultValu
 
                 else -> {
                     gson.fromJson(
-                        getString(key, gson.toJson(defaultValue)),
+                        getString(key, defaultValue?.toJson()),
                         requireNotNull(defaultValue)::class.java
-                    )
+                    ) ?: defaultValue
                 }
             }
         } as T
@@ -47,7 +47,7 @@ abstract class MMKVReadWrite<T>(private val key: String, private val defaultValu
                 is Float -> putFloat(key, value)
                 is Parcelable -> encode(key, value)
                 else -> {
-                    putString(key, gson.toJson(value))
+                    putString(key, value?.toJson())
                 }
             }
         }
