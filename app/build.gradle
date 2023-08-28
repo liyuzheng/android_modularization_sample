@@ -24,11 +24,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = '17'
     }
 }
 
@@ -38,7 +38,10 @@ dependencies {
     implementation rootProject.ext.deps.androidDesignLibrary
     implementation rootProject.ext.deps.androidLifecycleRuntime
     implementation rootProject.ext.deps.androidLifecycleViewModel
+    implementation rootProject.ext.deps.roomRuntime
+    implementation rootProject.ext.deps.roomKtx
     implementation rootProject.ext.deps.tencentMmkv
+    implementation rootProject.ext.deps.liveDataKtx
     implementation project(":features:feature_login")
     implementation project(":features:feature_lottery")
     implementation project(":features:feature_common:common_paging")

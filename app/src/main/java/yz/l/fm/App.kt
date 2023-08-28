@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.app.Application
 import android.content.Context
 import com.tencent.mmkv.MMKV
+import yz.l.common_room_db.RoomDB
 import yz.l.feature_login.LoginApp
 
 
@@ -21,6 +22,7 @@ class App : Application() {
     override fun onCreate() {
         super.onCreate()
         MMKV.initialize(this)
+        RoomDB.init(this)
         context = this
         LoginApp.onCreate(this)
     }

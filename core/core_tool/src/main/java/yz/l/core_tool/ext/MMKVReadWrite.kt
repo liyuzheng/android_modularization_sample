@@ -11,10 +11,10 @@ import kotlin.reflect.KProperty
  */
 @Suppress("UNCHECKED_CAST")
 abstract class MMKVReadWrite<T>(private val key: String, private val defaultValue: T) :
-    ReadWriteProperty<Any?, T> {
+    ReadWriteProperty<Any, T> {
     abstract fun getMMKV(): MMKV
 
-    override fun getValue(thisRef: Any?, property: KProperty<*>): T {
+    override fun getValue(thisRef: Any, property: KProperty<*>): T {
         return with(getMMKV()) {
             when (defaultValue) {
                 is Long -> getLong(key, defaultValue)
@@ -22,8 +22,10 @@ abstract class MMKVReadWrite<T>(private val key: String, private val defaultValu
                 is String -> getString(key, defaultValue)
                 is Boolean -> getBoolean(key, defaultValue)
                 is Int -> getInt(key, defaultValue)
-                is Parcelable -> decodeParcelable(key, requireNotNull(defaultValue)::class.java)
-                    ?: defaultValue
+                is Parcelable -> {
+                    decodeParcelable(key, defaultValue.javaClass)
+                        ?: defaultValue
+                }
 
                 else -> {
                     gson.fromJson(
@@ -35,7 +37,7 @@ abstract class MMKVReadWrite<T>(private val key: String, private val defaultValu
         } as T
     }
 
-    override fun setValue(thisRef: Any?, property: KProperty<*>, value: T) {
+    override fun setValue(thisRef: Any, property: KProperty<*>, value: T) {
         getMMKV().apply {
             when (value) {
                 is Long -> putLong(key, value)

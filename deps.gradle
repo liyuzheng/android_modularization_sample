@@ -19,7 +19,7 @@ rootProject.ext.deps = [
 
         androidLifecycleViewModel: "androidx.lifecycle:lifecycle-viewmodel-ktx:$rootProject.ext.lifecycle_version",
         androidLifecycleRuntime  : "androidx.lifecycle:lifecycle-runtime-ktx:$rootProject.ext.lifecycle_version",
-
+        liveDataKtx              : "androidx.lifecycle:lifecycle-livedata-ktx:$rootProject.ext.lifecycle_version",
 
         // widget
         androidCardView          : 'androidx.cardview:cardview:1.0.0',
@@ -64,5 +64,9 @@ rootProject.ext.deps = [
         okdownloadKernel         : 'com.ushowmedia.okdownload:okdownload:1.0.11',
         okdownloadSqlite         : 'com.ushowmedia.okdownload:sqlite:1.0.8',
         okdownloadOkhttp         : 'com.ushowmedia.okdownload:okhttp:1.0.8',
-        kotlinReflect            : "org.jetbrains.kotlin:kotlin-reflect:$rootProject.kotlin_version"
+        kotlinReflect            : "org.jetbrains.kotlin:kotlin-reflect:$rootProject.kotlin_version",
+
+        roomCompiler             : "androidx.room:room-compiler:$rootProject.ext.roomVersion",
+        roomRuntime              : "androidx.room:room-runtime:$rootProject.ext.roomVersion",
+        roomKtx                  : "androidx.room:room-ktx:$rootProject.ext.roomVersion"
 ]
