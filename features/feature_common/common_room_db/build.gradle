@@ -35,8 +35,9 @@ dependencies {
     compileOnly rootProject.ext.deps.androidAppCompat
     compileOnly rootProject.ext.deps.androidDesignLibrary
     kapt rootProject.ext.deps.roomCompiler
-    compileOnly rootProject.ext.deps.roomRuntime
-    compileOnly rootProject.ext.deps.roomKtx
+    implementation rootProject.ext.deps.roomRuntime
+    implementation rootProject.ext.deps.roomKtx
+    implementation rootProject.ext.deps.roomPaging
     compileOnly rootProject.ext.deps.gson
     compileOnly project(":core:core_tool")
 }

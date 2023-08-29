@@ -6,9 +6,12 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
+import yz.l.common_room_db.dao.LotteryDao
+import yz.l.common_room_db.dao.RemoteDao
 import yz.l.common_room_db.dao.UserDao
+import yz.l.common_room_db.eneities.LotteryEntity
+import yz.l.common_room_db.eneities.RemoteEntity
 import yz.l.common_room_db.eneities.UserEntity
-import yz.l.common_room_db.migrations.MIGRATION_1_2
 
 /**
  * desc:
@@ -42,10 +45,12 @@ object RoomDB {
 }
 
 @Database(
-    entities = [UserEntity::class],
+    entities = [UserEntity::class, RemoteEntity::class, LotteryEntity::class],
     version = 1, exportSchema = false
 )
 @TypeConverters(value = [LocalTypeConverter::class])
 abstract class AppDataBase : RoomDatabase() {
     abstract fun userDao(): UserDao
+    abstract fun remoteDao(): RemoteDao
+    abstract fun lotteryDao(): LotteryDao
 }

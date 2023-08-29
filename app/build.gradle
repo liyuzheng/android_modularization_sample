@@ -50,6 +50,7 @@ dependencies {
     implementation rootProject.ext.deps.workManager
     implementation rootProject.ext.deps.workManagerKtx
     implementation rootProject.ext.deps.workManagerMultiprocess
+    implementation rootProject.ext.deps.androidSwipe
 
     implementation project(":features:feature_login")
     implementation project(":features:feature_lottery")
@@ -57,6 +58,7 @@ dependencies {
     implementation project(":features:feature_common:common_room_db")
 
     implementation project(":services:service_login")
+    implementation project(":services:service_lottery")
 
     implementation project(":core:core_router")
     implementation project(":core:network")
@@ -65,4 +67,5 @@ dependencies {
 
     implementation project(":data:data_user")
     implementation project(":data:data_common")
+
 }

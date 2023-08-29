@@ -13,9 +13,9 @@ rootProject.ext.deps = [
         /////////////////////////// Android官方库  //////////////////////////////////////////////////
         // android
         androidCoreKtx           : 'androidx.core:core-ktx:1.9.0',
-        androidAnnotations       : 'androidx.annotation:annotation:1.6.0',
+        androidAnnotations       : 'androidx.annotation:annotation:1.6.1',
         androidAppCompat         : 'androidx.appcompat:appcompat:1.6.1',
-        androidFragmentKtx       : 'androidx.fragment:fragment-ktx:1.5.5',
+        androidFragmentKtx       : 'androidx.fragment:fragment-ktx:1.6.1',
         androidActivityKtx       : "androidx.activity:activity-ktx:1.6.1",
 
         androidLifecycleViewModel: "androidx.lifecycle:lifecycle-viewmodel-ktx:$rootProject.ext.lifecycle_version",
@@ -58,7 +58,9 @@ rootProject.ext.deps = [
 
         roomCompiler             : "androidx.room:room-compiler:$rootProject.ext.roomVersion",
         roomRuntime              : "androidx.room:room-runtime:$rootProject.ext.roomVersion",
+        roomPaging               : "androidx.room:room-paging:$rootProject.ext.roomVersion",
         roomKtx                  : "androidx.room:room-ktx:$rootProject.ext.roomVersion",
+        paging                   : "androidx.paging:paging-runtime:3.1.1",
 
         workManager              : "androidx.work:work-runtime:$rootProject.ext.workmanager_version",
         workManagerKtx           : "androidx.work:work-runtime-ktx:$rootProject.ext.workmanager_version",
