@@ -9,6 +9,7 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import yz.l.core_tool.ext.launchWhenResumed
 
 /**
  * desc:权限请求
@@ -117,7 +118,7 @@ class PermissionFragment : Fragment() {
     private val launcher = registerForActivityResult(
         ActivityResultContracts.RequestMultiplePermissions()
     ) { result ->
-        lifecycleScope.launchWhenResumed {
+        launchWhenResumed {
             dealResult(requireActivity(), result, block)
             requireActivity().supportFragmentManager.commit(true) {
                 remove(this@PermissionFragment)
@@ -128,7 +129,7 @@ class PermissionFragment : Fragment() {
     fun requestPermission(
         permissions: Array<String>
     ) {
-        lifecycleScope.launchWhenResumed {
+        launchWhenResumed{
             launcher.launch(permissions)
         }
     }
