@@ -1,7 +1,9 @@
 package yz.l.service_login
 
-import android.content.Context
+import androidx.lifecycle.LifecycleOwner
 import yz.l.core_router.Router
+import yz.l.data_user.LoginParams
+import yz.l.data_user.LoginResult
 
 /**
  * desc:
@@ -12,11 +14,17 @@ object LoginProxy {
         Router.getProvider(LoginServicePath.LOGIN_SERVICE_PATH_CODE) as LoginService
     }
 
-    fun isLogin(): Boolean {
-        return provider.isLogin()
-    }
+    fun action(
+        context: LifecycleOwner,
+        requestLogin: Boolean = true,
+        loginParams: MutableMap<LoginParams, Any> = mutableMapOf(),
+        interceptBlock: Boolean = false,
+        block: (result: LoginResult) -> Unit
+    ) = provider.action(context, requestLogin, loginParams, interceptBlock, block)
 
-    fun launchLoginActivity(context: Context) {
-        provider.launchLoginActivity(context)
-    }
+
+    fun getLoginStateFlow() = provider.getLoginStateObs()
+
+    fun logout() = provider.logout()
+
 }

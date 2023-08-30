@@ -30,8 +30,9 @@ android {
 }
 
 dependencies {
-    implementation rootProject.ext.deps.androidCoreKtx
-    implementation rootProject.ext.deps.androidAppCompat
-    implementation rootProject.ext.deps.androidDesignLibrary
-    implementation project(":core:core_router")
+    compileOnly rootProject.ext.deps.androidCoreKtx
+    compileOnly rootProject.ext.deps.androidAppCompat
+    compileOnly rootProject.ext.deps.androidDesignLibrary
+    compileOnly project(":core:core_router")
+    compileOnly project(":data:data_user")
 }

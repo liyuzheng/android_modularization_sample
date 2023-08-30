@@ -12,11 +12,8 @@ object UserMMKV {
         MMKV.mmkvWithID("UserStore")
     }
 
-    var test by UserMMKV("test", "12345")
-
-    var user by UserMMKV("user", UserModel(uid = "111", name = "test"))
-
-    var testUser by UserMMKV("testUser", TestParcelableModel("66666"))
+    var currentUser by UserMMKV("login.user", UserModel())
+    var token by UserMMKV("login.token", "")
 
     class UserMMKV<T>(key: String, defaultValue: T) : MMKVReadWrite<T>(key, defaultValue) {
         override fun getMMKV(): MMKV = mmkv

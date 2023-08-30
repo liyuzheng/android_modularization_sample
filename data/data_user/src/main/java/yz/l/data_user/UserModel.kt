@@ -7,5 +7,5 @@ package yz.l.data_user
 data class UserModel(
     var uid: String = "",
     var name: String = "",
-    var gender: Int = 1
+    var gender: Int = -1
 )

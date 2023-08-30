@@ -3,6 +3,7 @@ package yz.l.feature_login
 import android.annotation.SuppressLint
 import android.content.Context
 import yz.l.feature_login.provider.LoginProvider
+import yz.l.feature_login.status.LoginContext
 
 /**
  * desc:
@@ -16,5 +17,6 @@ object LoginApp {
     fun onCreate(context: Context) {
         LoginApp.context = context
         LoginProvider().init(context)
+        LoginContext.init()
     }
 }

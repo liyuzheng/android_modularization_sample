@@ -1,6 +1,5 @@
 package yz.l.feature_lottery
 
-import android.util.Log
 import androidx.databinding.BindingAdapter
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.asFlow

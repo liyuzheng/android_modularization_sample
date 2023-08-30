@@ -4,6 +4,7 @@
     <application>
         <activity
             android:name=".main.LoginActivity"
+            android:launchMode="singleTop"
             android:screenOrientation="portrait" />
     </application>
 </manifest>

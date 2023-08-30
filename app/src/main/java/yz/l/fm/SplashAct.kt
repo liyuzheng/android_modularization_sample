@@ -12,13 +12,11 @@ class SplashAct : BaseAct() {
 
     override fun setup() {
         if ((intent.flags and Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT != 0) || !isTaskRoot) {
-            //结束 activity
-            //判断是否是外部进来，是否需要跳转
             onNewIntent(intent)
             finish()
             return
         }
-        startActivity(Intent(this, MainActivity::class.java))
+        startActivity(Intent(this@SplashAct, MainActivity::class.java))
         finish()
     }
 }

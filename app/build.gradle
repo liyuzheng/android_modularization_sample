@@ -42,6 +42,8 @@ dependencies {
     implementation rootProject.ext.deps.androidDesignLibrary
     implementation rootProject.ext.deps.androidLifecycleRuntime
     implementation rootProject.ext.deps.androidLifecycleViewModel
+    implementation rootProject.ext.deps.androidFragmentKtx
+    implementation rootProject.ext.deps.androidActivityKtx
     implementation rootProject.ext.deps.roomRuntime
     implementation rootProject.ext.deps.roomKtx
     implementation rootProject.ext.deps.tencentMmkv

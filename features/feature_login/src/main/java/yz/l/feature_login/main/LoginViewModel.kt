@@ -16,6 +16,10 @@ import yz.l.network.onSuccess
  * createed by liyuzheng on 2023/8/28 18:26
  */
 class LoginViewModel : BaseViewModel() {
+    val titleObs = MutableLiveData("")
+    val showCloseBtn = MutableLiveData(true)
+
+
     val userName = MutableLiveData("")
     val passWord = MutableLiveData("")
 

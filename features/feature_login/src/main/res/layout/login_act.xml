@@ -5,6 +5,8 @@
 
     <data>
 
+        <import type="android.view.View" />
+
         <variable
             name="loginVM"
             type="yz.l.feature_login.main.LoginViewModel" />
@@ -15,11 +17,25 @@
         android:layout_height="match_parent">
 
         <TextView
+            android:id="@+id/close_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="16dp"
+            android:text="关闭按钮"
+            android:textColor="#ff0000"
+            android:textSize="16sp"
+            android:visibility="@{loginVM.showCloseBtn == true ? View.VISIBLE : View.GONE}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="HardcodedText" />
+
+        <TextView
             android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
-            android:text="login"
+            android:text="@{loginVM.titleObs}"
             android:textColor="#ff0000"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
