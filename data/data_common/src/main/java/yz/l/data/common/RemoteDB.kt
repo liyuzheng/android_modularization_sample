@@ -2,7 +2,6 @@ package yz.l.data.common
 
 import yz.l.common_room_db.RoomDB
 import yz.l.common_room_db.dao.RemoteDao
-import yz.l.common_room_db.eneities.RemoteEntity
 
 /**
  * desc:
@@ -16,7 +15,7 @@ object RemoteDB {
     suspend fun getRemoteKeysAsync(remoteName: String) =
         dao.getRemoteKeysAsync(remoteName)?.toRemoteModel()
 
-    suspend fun insertAsync(remoteKeyEntity: RemoteEntity) {
-        dao.insertAsync(remoteKeyEntity)
+    suspend fun insertAsync(remoteModel: RemoteModel) {
+        dao.insertAsync(remoteModel.toRemoteEntity())
     }
 }

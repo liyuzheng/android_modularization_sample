@@ -8,7 +8,6 @@ import yz.l.common_room_db.RoomDB
 import yz.l.common_room_db.eneities.LotteryEntity
 import yz.l.data.common.RemoteDB
 import yz.l.data.common.RemoteModel
-import yz.l.data.common.toRemoteEntity
 import yz.l.network.ext.repo
 import yz.l.network.ext.request
 
@@ -38,7 +37,7 @@ class LotteryMediator(private val queryStr: String) :
                 clearLocalData()
             }
             LotteryDB.insertAll(lotteryEntities)
-            RemoteDB.insertAsync(RemoteModel(remoteName, result.next).toRemoteEntity())
+            RemoteDB.insertAsync(RemoteModel(remoteName, result.next))
         }
         return result.next.isBlank()
     }
