@@ -65,4 +65,6 @@ rootProject.ext.deps = [
         workManager              : "androidx.work:work-runtime:$rootProject.ext.workmanager_version",
         workManagerKtx           : "androidx.work:work-runtime-ktx:$rootProject.ext.workmanager_version",
         workManagerMultiprocess  : "androidx.work:work-multiprocess:$rootProject.ext.workmanager_version",
+
+        splash                   : "androidx.core:core-splashscreen:1.0.0",
 ]

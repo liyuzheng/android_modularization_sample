@@ -37,5 +37,9 @@ dependencies {
     compileOnly rootProject.ext.deps.androidCoreKtx
     compileOnly rootProject.ext.deps.androidAppCompat
     compileOnly rootProject.ext.deps.androidDesignLibrary
+    compileOnly rootProject.ext.deps.androidLifecycleRuntime
+    compileOnly rootProject.ext.deps.androidLifecycleViewModel
+    compileOnly rootProject.ext.deps.androidFragmentKtx
+    compileOnly rootProject.ext.deps.androidActivityKtx
     compileOnly project(":core:core_tool")
 }

@@ -53,6 +53,8 @@ dependencies {
     implementation rootProject.ext.deps.workManagerKtx
     implementation rootProject.ext.deps.workManagerMultiprocess
     implementation rootProject.ext.deps.androidSwipe
+    implementation rootProject.ext.deps.splash
+
 
     implementation project(":features:feature_login")
     implementation project(":features:feature_lottery")

@@ -39,7 +39,7 @@ fun LifecycleOwner.requestLogin(
             }
 
             else -> {
-                throw RuntimeException("requestPermission LifecycleOwner必须是activity或fragment")
+                throw RuntimeException("requestLogin LifecycleOwner必须是activity或fragment")
             }
         }
     }.onFailure {
