@@ -14,6 +14,7 @@
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:taskAffinity=".developer"
+            android:icon="@mipmap/ic_launcher"
             tools:ignore="LockedOrientationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
