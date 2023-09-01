@@ -16,6 +16,7 @@ import yz.l.data_user.onGuest
 import yz.l.data_user.onSuccess
 import yz.l.feature_login.proxy.requestLogin
 import yz.l.fm.databinding.MainActBinding
+import yz.l.service.lottery.LotteryProxy
 import yz.l.service_login.LoginProxy
 
 /**
@@ -33,6 +34,7 @@ class MainActivity : BaseBindingAct<MainActBinding>() {
     override fun setup() {
         super.setup()
         setupObs()
+        LotteryProxy.launchLotteriesActAuto(this)
     }
 
     override fun onBackPressedCallback() {

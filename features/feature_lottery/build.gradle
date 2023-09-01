@@ -41,6 +41,8 @@ dependencies {
     implementation rootProject.ext.deps.paging
     implementation rootProject.ext.deps.androidLifecycleViewModel
     implementation rootProject.ext.deps.androidFragmentKtx
+    implementation rootProject.ext.deps.autoservice
+    kapt rootProject.ext.deps.autoservice
     implementation project(":services:service_lottery")
     implementation project(":features:feature_common:common_paging")
     implementation project(":core:core_router")
