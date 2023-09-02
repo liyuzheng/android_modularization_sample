@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="HomeBottomNav" parent="BottomNavigationViewStyle">
+        <item name="icon">@drawable/ic_main_nav_home</item>
+        <item name="textColor">@color/color_home_bottom_nav_view_text</item>
+    </style>
+</resources>

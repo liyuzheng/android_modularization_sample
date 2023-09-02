@@ -54,12 +54,15 @@ dependencies {
     implementation rootProject.ext.deps.workManagerMultiprocess
     implementation rootProject.ext.deps.androidSwipe
     implementation rootProject.ext.deps.splash
+    implementation rootProject.ext.deps.androidConstraintLayout
 
 
     implementation project(":features:feature_login")
     implementation project(":features:feature_lottery")
     implementation project(":features:feature_common:common_paging")
     implementation project(":features:feature_common:common_room_db")
+    implementation project(":features:feature_common:common_view")
+    implementation project(":features:feature_common:common_style")
 
     implementation project(":services:service_login")
     implementation project(":services:service_lottery")

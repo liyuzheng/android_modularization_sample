@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="BottomNavigationGroup">
+        <attr name="navBottomViewStyle" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="BottomNavigationView">
+        <attr name="iconWidth" format="dimension" />
+        <attr name="iconHeight" format="dimension" />
+        <attr name="textSize" format="dimension" />
+        <attr name="textColor" format="color" />
+    </declare-styleable>
+
+
+    <declare-styleable name="BadgeView">
+        <attr name="maxNum" format="integer" />
+        <attr name="style" format="enum">
+            <enum name="type_num" value="1" />
+            <enum name="type_circle" value="2" />
+        </attr>
+    </declare-styleable>
+</resources>

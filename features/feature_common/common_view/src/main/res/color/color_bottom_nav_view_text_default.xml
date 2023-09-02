@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:tools="http://schemas.android.com/tools" xmlns:android="http://schemas.android.com/apk/res/android" tools:ignore="MissingDefaultResource">
+    <item android:color="#F8E8BE" android:state_selected="true" />
+    <item android:color="#707070" />
+</selector>

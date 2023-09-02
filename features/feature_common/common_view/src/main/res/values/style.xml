@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="BottomNavigationViewStyle">
+        <item name="iconWidth">30dp</item>
+        <item name="iconHeight">30dp</item>
+        <item name="textColor">@color/color_bottom_nav_view_text_default</item>
+        <item name="textSize">12sp</item>
+    </style>
+
+    <style name="testStyle" parent="BottomNavigationViewStyle">
+        <item name="iconWidth">80dp</item>
+    </style>
+</resources>

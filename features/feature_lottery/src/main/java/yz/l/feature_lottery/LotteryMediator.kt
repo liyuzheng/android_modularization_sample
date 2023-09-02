@@ -1,4 +1,4 @@
-package yz.l.data.lottery
+package yz.l.feature_lottery
 
 import androidx.paging.LoadType
 import androidx.paging.PagingConfig
@@ -8,6 +8,10 @@ import yz.l.common_room_db.RoomDB
 import yz.l.common_room_db.eneities.LotteryEntity
 import yz.l.data.common.RemoteDB
 import yz.l.data.common.RemoteModel
+import yz.l.data.lottery.LotteryDB
+import yz.l.data.lottery.LotteryList
+import yz.l.data.lottery.LotteryModel
+import yz.l.data.lottery.toLotteryEntity
 import yz.l.network.ext.repo
 import yz.l.network.ext.request
 

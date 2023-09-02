@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="top|center_horizontal"
+        android:orientation="vertical"
+        tools:layout_height="60dp">
+
+        <ImageView
+            android:id="@+id/iv_tab"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="6dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:background="@color/black_80"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/tv_tab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_tab"
+            tools:text="视频聊天"
+            tools:textColor="@color/black_80"
+            tools:textSize="12sp" />
+
+        <yz.l.common.view.navbottomview.BadgeView
+            android:id="@+id/iv_badge"
+            android:layout_width="wrap_content"
+            android:layout_height="18dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="2dp"
+            android:visibility="invisible"
+            app:maxNum="99"
+            app:layout_constraintStart_toStartOf="@id/iv_tab"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:background="@drawable/bg_circle_ff5a01"
+            tools:layout_height="18dp"
+            tools:layout_width="18dp"
+            tools:text="12" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

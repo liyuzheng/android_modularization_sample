@@ -43,11 +43,17 @@ dependencies {
     implementation rootProject.ext.deps.androidFragmentKtx
     implementation rootProject.ext.deps.autoservice
     kapt rootProject.ext.deps.autoservice
+    implementation rootProject.ext.deps.roomRuntime
+    implementation rootProject.ext.deps.roomKtx
+    implementation rootProject.ext.deps.roomPaging
     implementation project(":services:service_lottery")
     implementation project(":features:feature_common:common_paging")
+    implementation project(":features:feature_common:common_room_db")
     implementation project(":core:core_router")
     implementation project(":core:network")
     implementation project(":core:core_tool")
     implementation project(":core:core_mvvm")
     implementation project(":data:data_lottery")
+    implementation project(":data:data_common")
+
 }

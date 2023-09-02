@@ -1,0 +1,45 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+}
+
+android {
+    namespace 'yz.l.common.view'
+    compileSdk rootProject.ext.compileSdkVersion
+
+    defaultConfig {
+        minSdk rootProject.ext.minSdkVersion
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+    dataBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+    compileOnly rootProject.ext.deps.androidCoreKtx
+    compileOnly rootProject.ext.deps.androidAppCompat
+    compileOnly rootProject.ext.deps.androidDesignLibrary
+    compileOnly rootProject.ext.deps.androidConstraintLayout
+
+    compileOnly project(":core:core_tool")
+    compileOnly project(":core:core_mvvm")
+    compileOnly project(":features:feature_common:common_style")
+}

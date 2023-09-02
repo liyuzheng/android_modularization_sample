@@ -1,4 +1,4 @@
-package yz.l.common_room_db
+package yz.l.common.style
 
 import org.junit.Test
 

@@ -1,4 +1,4 @@
-package yz.l.common_room_db
+package yz.l.common.style
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("yz.l.common_room_db.test", appContext.packageName)
+        assertEquals("yz.l.common.style.test", appContext.packageName)
     }
 }
