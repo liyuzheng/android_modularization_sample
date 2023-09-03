@@ -55,6 +55,8 @@ dependencies {
     implementation rootProject.ext.deps.androidSwipe
     implementation rootProject.ext.deps.splash
     implementation rootProject.ext.deps.androidConstraintLayout
+    implementation rootProject.ext.deps.autoservice
+    kapt rootProject.ext.deps.autoservice
 
 
     implementation project(":features:feature_login")

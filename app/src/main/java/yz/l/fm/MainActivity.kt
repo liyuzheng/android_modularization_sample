@@ -8,8 +8,11 @@ import yz.l.common.view.navbottomview.bottomNavOption
 import yz.l.common.view.navbottomview.setup
 import yz.l.core.mvvm.BaseBindingAct
 import yz.l.core.mvvm.exts.binding
+import yz.l.core_tool.ext.getPlatformProxy
 import yz.l.core_tool.ext.sparse
+import yz.l.core_tool.utils.system.RuntimeUtil
 import yz.l.fm.databinding.MainActBinding
+import yz.l.fm.platformstrategy.ILogPlatformAction
 
 /**
  * desc:
@@ -24,31 +27,31 @@ class MainActivity : BaseBindingAct<MainActBinding>() {
         return sparse(BR.mainVM to mViewModel)
     }
 
+    private val logProxy by lazy {
+        getPlatformProxy<ILogPlatformAction>()
+    }
+
     override fun setup() {
         super.setup()
+        logProxy.log()
         mBinding.homeTab.setup {
-            options(
-                bottomNavOption {
-                    id { R.id.home }
-                    tabText { "home" }
-                    iconRes { R.drawable.ic_main_nav_home }
-                },
-                bottomNavOption {
-                    id { R.id.topic }
-                    tabText { "topic" }
-                    iconRes { R.drawable.ic_main_nav_home }
-                },
-                bottomNavOption {
-                    id { R.id.find }
-                    tabText { "find" }
-                    iconRes { R.drawable.ic_main_nav_home }
-                },
-                bottomNavOption {
-                    id { R.id.me }
-                    tabText { "me" }
-                    iconRes { R.drawable.ic_main_nav_home }
-                }
-            )
+            options(bottomNavOption {
+                id { R.id.home }
+                tabText { "home" }
+                iconRes { R.drawable.ic_main_nav_home }
+            }, bottomNavOption {
+                id { R.id.topic }
+                tabText { "topic" }
+                iconRes { R.drawable.ic_main_nav_home }
+            }, bottomNavOption {
+                id { R.id.find }
+                tabText { "find" }
+                iconRes { R.drawable.ic_main_nav_home }
+            }, bottomNavOption {
+                id { R.id.me }
+                tabText { "me" }
+                iconRes { R.drawable.ic_main_nav_home }
+            })
             listener {
                 object : BottomNavigationGroup.OnCheckedChangeListener {
                     override fun onCheckedChanged(group: BottomNavigationGroup?, checkedId: Int) {

@@ -34,6 +34,8 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:soundEffectsEnabled">false</item>
+        <item name="android:windowTranslucentNavigation">false</item>
+        <item name="android:navigationBarColor">@color/white</item>
         <item name="android:windowBackground">@color/white</item>
         <item name="android:windowAnimationStyle">@style/AnimActivityLeftIn</item>
     </style>
