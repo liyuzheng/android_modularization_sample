@@ -32,23 +32,22 @@ class MainActivity : BaseBindingAct<MainActBinding>() {
                     id { R.id.home }
                     tabText { "home" }
                     iconRes { R.drawable.ic_main_nav_home }
-                })
-            options(bottomNavOption {
-                id { R.id.topic }
-                tabText { "topic" }
-                iconRes { R.drawable.ic_main_nav_home }
-            })
-            options(
+                },
+                bottomNavOption {
+                    id { R.id.topic }
+                    tabText { "topic" }
+                    iconRes { R.drawable.ic_main_nav_home }
+                },
                 bottomNavOption {
                     id { R.id.find }
                     tabText { "find" }
                     iconRes { R.drawable.ic_main_nav_home }
-                })
-            bottomNavOption {
-                id { R.id.me }
-                tabText { "me" }
-                iconRes { R.drawable.ic_main_nav_home }
-            }
+                },
+                bottomNavOption {
+                    id { R.id.me }
+                    tabText { "me" }
+                    iconRes { R.drawable.ic_main_nav_home }
+                }
             )
             listener {
                 object : BottomNavigationGroup.OnCheckedChangeListener {

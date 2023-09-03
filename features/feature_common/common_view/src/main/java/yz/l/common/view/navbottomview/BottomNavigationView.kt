@@ -21,8 +21,7 @@ import yz.l.core_tool.utils.ResourceUtil
 class BottomNavigationView : FrameLayout, Checkable {
     constructor(context: Context, attrs: AttributeSet?) : super(
         context,
-        attrs,
-        R.style.BottomNavigationViewStyle
+        attrs
     ) {
         setupAttr(attrs)
     }
