@@ -6,10 +6,16 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
+import yz.l.common_room_db.dao.CalendarDao
+import yz.l.common_room_db.dao.DiaryDao
 import yz.l.common_room_db.dao.LotteryDao
+import yz.l.common_room_db.dao.PagingDiaryDao
 import yz.l.common_room_db.dao.RemoteDao
 import yz.l.common_room_db.dao.UserDao
+import yz.l.common_room_db.eneities.CalendarEntity
+import yz.l.common_room_db.eneities.DiaryEntity
 import yz.l.common_room_db.eneities.LotteryEntity
+import yz.l.common_room_db.eneities.PagingDiaryEntity
 import yz.l.common_room_db.eneities.RemoteEntity
 import yz.l.common_room_db.eneities.UserEntity
 
@@ -38,19 +44,22 @@ object RoomDB {
                 .allowMainThreadQueries() //允许启用同步查询，即：允许主线程可以查询数据库，这个配置要视情况使用，一般不推荐同步查询
                 .fallbackToDestructiveMigration()//如果数据库升级失败了，删除重新创建
                 .enableMultiInstanceInvalidation()//多进程查询支持
-//              .addMigrations(MIGRATION_1_2) //数据库版本升级，MIGRATION_1_2为要执行的表格执行sql语句，例如database.execSQL("ALTER TABLE localCacheMusic ADD COLUMN time Int NOT NULL default 0 ;")
+//                .addMigrations(MIGRATION_1_2) //数据库版本升级，MIGRATION_1_2为要执行的表格执行sql语句，例如database.execSQL("ALTER TABLE localCacheMusic ADD COLUMN time Int NOT NULL default 0 ;")
                 .build()
         }
     }
 }
 
 @Database(
-    entities = [UserEntity::class, RemoteEntity::class, LotteryEntity::class],
-    version = 1, exportSchema = false
+    entities = [UserEntity::class, RemoteEntity::class, LotteryEntity::class, CalendarEntity::class, DiaryEntity::class, PagingDiaryEntity::class],
+    version = 2, exportSchema = false
 )
 @TypeConverters(value = [LocalTypeConverter::class])
 abstract class AppDataBase : RoomDatabase() {
     abstract fun userDao(): UserDao
     abstract fun remoteDao(): RemoteDao
     abstract fun lotteryDao(): LotteryDao
+    abstract fun calendarDao(): CalendarDao
+    abstract fun diaryDao(): DiaryDao
+    abstract fun pagingDiaryDao(): PagingDiaryDao
 }

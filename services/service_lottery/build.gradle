@@ -1,6 +1,6 @@
 plugins {
-    id 'com.android.library'
-    id 'org.jetbrains.kotlin.android'
+    alias(libs.plugins.androidLibrary)
+    alias(libs.plugins.jetbrainsKotlinAndroid)
 }
 
 android {
@@ -10,7 +10,7 @@ android {
     defaultConfig {
         minSdk rootProject.ext.minSdkVersion
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
         consumerProguardFiles "consumer-rules.pro"
     }
 
@@ -21,17 +21,18 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_17
-        targetCompatibility JavaVersion.VERSION_17
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = '17'
+        jvmTarget = '1.8'
     }
+
 }
 
 dependencies {
-    compileOnly rootProject.ext.deps.androidCoreKtx
-    compileOnly rootProject.ext.deps.androidAppCompat
-    compileOnly rootProject.ext.deps.androidDesignLibrary
+    implementation libs.androidx.core.ktx
+    implementation libs.androidx.appcompat.appcompat
+    implementation libs.com.google.android.material.material
     compileOnly project(":core:core_router")
 }

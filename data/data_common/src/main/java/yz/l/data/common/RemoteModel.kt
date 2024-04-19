@@ -6,5 +6,6 @@ package yz.l.data.common
  */
 class RemoteModel(
     var name: String = "",
-    var next: String = ""
+    var next: String = "",
+    var prepend: String = ""
 )

@@ -1,7 +1,7 @@
 plugins {
-    id 'com.android.application'
-    id 'org.jetbrains.kotlin.android'
-    id 'kotlin-kapt'
+    alias(libs.plugins.androidApplication)
+    alias(libs.plugins.jetbrainsKotlinAndroid)
+    alias(libs.plugins.kapt)
 }
 
 android {
@@ -15,7 +15,7 @@ android {
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
     }
 
     buildTypes {
@@ -25,38 +25,42 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_17
-        targetCompatibility JavaVersion.VERSION_17
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = '17'
+        jvmTarget = '1.8'
     }
-    dataBinding {
-        enabled = true
+    buildFeatures {
+        dataBinding true
     }
+    buildFeatures {
+        buildConfig = true
+    }
+
 }
 
 dependencies {
-    implementation rootProject.ext.deps.androidCoreKtx
-    implementation rootProject.ext.deps.androidAppCompat
-    implementation rootProject.ext.deps.androidDesignLibrary
-    implementation rootProject.ext.deps.androidLifecycleRuntime
-    implementation rootProject.ext.deps.androidLifecycleViewModel
-    implementation rootProject.ext.deps.androidFragmentKtx
-    implementation rootProject.ext.deps.androidActivityKtx
-    implementation rootProject.ext.deps.roomRuntime
-    implementation rootProject.ext.deps.roomKtx
-    implementation rootProject.ext.deps.tencentMmkv
-    implementation rootProject.ext.deps.liveDataKtx
-    implementation rootProject.ext.deps.gson
-    implementation rootProject.ext.deps.workManager
-    implementation rootProject.ext.deps.workManagerKtx
-    implementation rootProject.ext.deps.workManagerMultiprocess
-    implementation rootProject.ext.deps.androidSwipe
-    implementation rootProject.ext.deps.splash
-    implementation rootProject.ext.deps.androidConstraintLayout
-    implementation rootProject.ext.deps.autoservice
-    kapt rootProject.ext.deps.autoservice
+    implementation libs.androidx.core.ktx
+    implementation libs.androidx.appcompat.appcompat
+    implementation libs.com.google.android.material.material
+    implementation libs.androidx.lifecycle.runtime.ktx
+    implementation libs.androidx.lifecycle.viewmodel.ktx
+    implementation libs.androidx.fragment.fragment.ktx
+    implementation libs.androidx.activity.activity.ktx
+    implementation libs.androidx.room.room.runtime
+    implementation libs.androidx.room.room.ktx
+    implementation libs.com.tencent.mmkv.static
+    implementation libs.androidx.lifecycle.livedata.ktx
+    implementation libs.com.google.code.gson.gson
+    implementation libs.androidx.work.work.runtime
+    implementation libs.androidx.work.work.runtime.ktx
+    implementation libs.androidx.work.work.multiprocess
+    implementation libs.androidx.swiperefreshlayout.swiperefreshlayout
+    implementation libs.androidx.core.core.splashscreen
+    implementation libs.androidx.constraintlayout.constraintlayout
+    implementation libs.com.google.auto.service.auto.service
+    kapt libs.com.google.auto.service.auto.service
 
 
     implementation project(":features:feature_login")

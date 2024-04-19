@@ -10,6 +10,5 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 val MIGRATION_1_2: Migration = object : Migration(1, 2) {
     override fun migrate(database: SupportSQLiteDatabase) {
         //sqlLite 数据库升级修改语句执行
-        //database.execSQL("ALTER TABLE localCacheMusic ADD COLUMN time Int NOT NULL default 0 ;")
     }
 }

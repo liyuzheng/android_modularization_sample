@@ -57,7 +57,7 @@ abstract class BaseRemoteMediator<V : Any, T : Any>(
         state: PagingState<Int, V>
     ): MediatorResult {
         val loadKey: String = when (loadType) {
-            LoadType.PREPEND -> return MediatorResult.Success(endOfPaginationReached = true)
+            LoadType.PREPEND -> initPrependKey(remoteName) ?: return MediatorResult.Success(true)
             LoadType.APPEND -> initLoadKey(remoteName) ?: defaultRefreshLoadKey(remoteName)
             else -> defaultRefreshLoadKey(remoteName)
         }
@@ -72,5 +72,19 @@ abstract class BaseRemoteMediator<V : Any, T : Any>(
             val e = ex.toResponseException()
             MediatorResult.Error(e)
         }
+    }
+
+    open suspend fun prepend(
+        loadKey: String,
+        loadType: LoadType,
+        pageConfig: PagingConfig
+    ): Boolean {
+        return true
+    }
+
+    open suspend fun initPrependKey(
+        remoteName: String,
+    ): String? {
+        return null
     }
 }

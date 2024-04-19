@@ -18,4 +18,8 @@ object RemoteDB {
     suspend fun insertAsync(remoteModel: RemoteModel) {
         dao.insertAsync(remoteModel.toRemoteEntity())
     }
+
+    suspend fun clearRemoteKeys(remoteName: String) {
+        dao.clearRemoteKeys(remoteName)
+    }
 }

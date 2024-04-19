@@ -7,5 +7,6 @@ import androidx.room.PrimaryKey
 data class RemoteEntity(
     @PrimaryKey
     var name: String = "",
-    var next: String = ""
+    var next: String = "",
+    var prepend: String = ""
 )

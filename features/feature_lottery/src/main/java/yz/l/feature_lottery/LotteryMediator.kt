@@ -36,10 +36,6 @@ class LotteryMediator(private val queryStr: String) :
             it.toLotteryEntity(remoteName)
         }
         RoomDB.INSTANCE.withTransaction {
-            if (loadType == LoadType.REFRESH) {
-                //拿到结果后，如果判断出是刷新，先清空数据库
-                clearLocalData()
-            }
             LotteryDB.insertAll(lotteryEntities)
             RemoteDB.insertAsync(RemoteModel(remoteName, result.next))
         }

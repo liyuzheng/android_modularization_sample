@@ -1,7 +1,7 @@
 plugins {
-    id 'com.android.library'
-    id 'org.jetbrains.kotlin.android'
-    id 'kotlin-kapt'
+    alias(libs.plugins.androidLibrary)
+    alias(libs.plugins.jetbrainsKotlinAndroid)
+    alias(libs.plugins.kapt)
 }
 
 android {
@@ -11,7 +11,6 @@ android {
     defaultConfig {
         minSdk rootProject.ext.minSdkVersion
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
     }
 
@@ -22,24 +21,23 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_17
-        targetCompatibility JavaVersion.VERSION_17
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = '17'
+        jvmTarget = '1.8'
     }
-    dataBinding {
-        enabled = true
+    buildFeatures {
+        dataBinding true
     }
+
 }
 
 dependencies {
-    compileOnly rootProject.ext.deps.androidCoreKtx
-    compileOnly rootProject.ext.deps.androidAppCompat
-    compileOnly rootProject.ext.deps.androidDesignLibrary
-    compileOnly rootProject.ext.deps.androidLifecycleRuntime
-    compileOnly rootProject.ext.deps.androidLifecycleViewModel
-    compileOnly rootProject.ext.deps.androidFragmentKtx
-    compileOnly rootProject.ext.deps.androidActivityKtx
+    implementation libs.androidx.core.ktx
+    implementation libs.androidx.appcompat.appcompat
+    implementation libs.com.google.android.material.material
+    implementation libs.androidx.fragment.fragment.ktx
+    implementation libs.androidx.activity.activity.ktx
     compileOnly project(":core:core_tool")
 }

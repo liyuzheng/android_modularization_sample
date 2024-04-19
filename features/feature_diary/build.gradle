@@ -1,0 +1,58 @@
+plugins {
+    alias(libs.plugins.androidLibrary)
+    alias(libs.plugins.jetbrainsKotlinAndroid)
+    alias(libs.plugins.kapt)
+}
+
+android {
+    namespace 'yz.l.feature.diary'
+    compileSdk rootProject.ext.compileSdkVersion
+
+    defaultConfig {
+        minSdk rootProject.ext.minSdkVersion
+
+
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        dataBinding true
+    }
+
+}
+
+dependencies {
+    implementation libs.androidx.core.ktx
+    implementation libs.androidx.appcompat.appcompat
+    implementation libs.com.google.android.material.material
+    implementation libs.androidx.swiperefreshlayout.swiperefreshlayout
+    implementation libs.androidx.paging.paging.runtime
+    implementation libs.androidx.lifecycle.viewmodel.ktx
+    implementation libs.androidx.fragment.fragment.ktx
+    implementation libs.com.google.auto.service.auto.service
+    kapt libs.com.google.auto.service.auto.service
+    implementation libs.androidx.room.room.runtime
+    implementation libs.androidx.room.room.ktx
+    implementation libs.androidx.room.room.paging
+    implementation project(":features:feature_common:common_paging")
+    implementation project(":features:feature_common:common_room_db")
+    implementation project(":core:core_router")
+    implementation project(":core:network")
+    implementation project(":core:core_tool")
+    implementation project(":core:core_mvvm")
+    implementation project(":data:data_common")
+    implementation project(":data:data_diary")
+}

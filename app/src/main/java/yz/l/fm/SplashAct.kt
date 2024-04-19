@@ -2,6 +2,7 @@ package yz.l.fm
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.ViewTreeObserver
 import androidx.activity.viewModels
@@ -28,9 +29,10 @@ class SplashAct : BaseAct() {
     override fun onCreate(savedInstanceState: Bundle?) {
         val splashScreen = installSplashScreen()
         super.onCreate(savedInstanceState)
+        setupExitSplashScreenAnim(splashScreen)
         splashScreen.setKeepOnScreenCondition { true }
         setupSplashScreen(splashScreen)
-        setupExitSplashScreenAnim(splashScreen)
+
         mViewModel.init()
     }
 
@@ -49,6 +51,7 @@ class SplashAct : BaseAct() {
     }
 
     private fun setupExitSplashScreenAnim(splashScreen: SplashScreen) {
+
         splashScreen.setOnExitAnimationListener { provider ->
             val splashScreenView = provider.view
             val springAnim = SpringAnimation(
@@ -59,6 +62,7 @@ class SplashAct : BaseAct() {
             springAnim.setStartValue(splashScreenView.x)
             springAnim.spring.dampingRatio = SpringForce.DAMPING_RATIO_HIGH_BOUNCY
             springAnim.start()
+
             springAnim.addEndListener { _, _, _, _ ->
                 jumpToMain()
                 provider.remove()
@@ -67,6 +71,7 @@ class SplashAct : BaseAct() {
     }
 
     private fun jumpToMain() {
+
         startActivity(Intent(this@SplashAct, MainActivity::class.java))
         finish()
     }

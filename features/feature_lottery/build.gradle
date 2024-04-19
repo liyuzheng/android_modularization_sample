@@ -1,7 +1,7 @@
 plugins {
-    id 'com.android.library'
-    id 'org.jetbrains.kotlin.android'
-    id 'kotlin-kapt'
+    alias(libs.plugins.androidLibrary)
+    alias(libs.plugins.jetbrainsKotlinAndroid)
+    alias(libs.plugins.kapt)
 }
 
 android {
@@ -11,7 +11,7 @@ android {
     defaultConfig {
         minSdk rootProject.ext.minSdkVersion
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
         consumerProguardFiles "consumer-rules.pro"
     }
 
@@ -22,30 +22,31 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_17
-        targetCompatibility JavaVersion.VERSION_17
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = '17'
+        jvmTarget = '1.8'
     }
-    dataBinding {
-        enabled = true
+    buildFeatures {
+        dataBinding true
     }
+
 }
 
 dependencies {
-    implementation rootProject.ext.deps.androidCoreKtx
-    implementation rootProject.ext.deps.androidAppCompat
-    implementation rootProject.ext.deps.androidDesignLibrary
-    implementation rootProject.ext.deps.androidSwipe
-    implementation rootProject.ext.deps.paging
-    implementation rootProject.ext.deps.androidLifecycleViewModel
-    implementation rootProject.ext.deps.androidFragmentKtx
-    implementation rootProject.ext.deps.autoservice
-    kapt rootProject.ext.deps.autoservice
-    implementation rootProject.ext.deps.roomRuntime
-    implementation rootProject.ext.deps.roomKtx
-    implementation rootProject.ext.deps.roomPaging
+    implementation libs.androidx.core.ktx
+    implementation libs.androidx.appcompat.appcompat
+    implementation libs.com.google.android.material.material
+    implementation libs.androidx.swiperefreshlayout.swiperefreshlayout
+    implementation libs.androidx.paging.paging.runtime
+    implementation libs.androidx.lifecycle.viewmodel.ktx
+    implementation libs.androidx.fragment.fragment.ktx
+    implementation libs.com.google.auto.service.auto.service
+    kapt libs.com.google.auto.service.auto.service
+    implementation libs.androidx.room.room.runtime
+    implementation libs.androidx.room.room.ktx
+    implementation libs.androidx.room.room.paging
     implementation project(":services:service_lottery")
     implementation project(":features:feature_common:common_paging")
     implementation project(":features:feature_common:common_room_db")
