@@ -15,6 +15,7 @@
         <attr name="lrcPlayDrawable" format="reference" />
         <attr name="lrcTimeTextColor" format="reference|color" />
         <attr name="lrcTimeTextSize" format="dimension" />
+        <attr name="lrcTopOffset" format="dimension" />
         <attr name="lrcTextGravity">
             <enum name="center" value="0" />
             <enum name="left" value="1" />

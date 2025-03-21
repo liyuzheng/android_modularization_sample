@@ -23,6 +23,9 @@ paging = "3.1.1"
 workManager = "2.8.1"
 splash = "1.0.1"
 autoService = "1.1.1"
+junit = "4.14-SNAPSHOT"
+junitVersion = "1.2.1"
+espressoCore = "3.6.1"
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-annotation-annotation = { group = "androidx.annotation", name = "annotation", version.ref = "annotation" }
@@ -70,6 +73,9 @@ androidx-work-work-multiprocess = { group = "androidx.work", name = "work-multip
 androidx-core-core-splashscreen = { group = "androidx.core", name = "core-splashscreen", version.ref = "splash" }
 
 com-google-auto-service-auto-service = { group = "com.google.auto.service", name = "auto-service", version.ref = "autoService" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 androidLibrary = { id = "com.android.library", version.ref = "agp" }

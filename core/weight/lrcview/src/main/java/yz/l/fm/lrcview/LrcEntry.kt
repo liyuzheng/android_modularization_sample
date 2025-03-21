@@ -40,7 +40,6 @@ class LrcEntry(private val time: Long, private var text: String) : Comparable<Lr
             .setLineSpacing(0f, 1f) // 设置行间距，第一个参数是额外的间距，第二个是倍数
             .setIncludePad(false) // 设置是否包含额外的填充
             .build()
-        // staticLayout = StaticLayout(getShowText(), paint, width, align, 1f, 0f, false)
         offset = Float.MIN_VALUE
     }
 

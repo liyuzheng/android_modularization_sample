@@ -18,6 +18,7 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.animation.LinearInterpolator
 import android.widget.Scroller
+import androidx.annotation.Keep
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
@@ -25,8 +26,6 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.newSingleThreadContext
 import kotlinx.coroutines.withContext
-import yz.l.fm.R
-import yz.l.fm.resColor
 import kotlin.math.abs
 
 /**
@@ -34,7 +33,8 @@ import kotlin.math.abs
  * @since 2025/3/20 11:07
  * @desc:
  */
-class LrcView(context: Context, attrs: AttributeSet?) : View(context, attrs) {
+@Keep
+open class LrcView(context: Context, attrs: AttributeSet?) : View(context, attrs) {
     companion object {
         private const val TAG = "LrcView"
         private const val ADJUST_DURATION = 100L
@@ -42,7 +42,7 @@ class LrcView(context: Context, attrs: AttributeSet?) : View(context, attrs) {
     }
 
 
-    private var mLrcEntryList: MutableList<LrcEntry> = mutableListOf()
+    protected var mLrcEntryList: MutableList<LrcEntry> = mutableListOf()
     private val mLrcPaint = TextPaint()
     private val mTimePaint = TextPaint()
     private var mTimeFontMetrics: Paint.FontMetrics? = null
@@ -71,7 +71,8 @@ class LrcView(context: Context, attrs: AttributeSet?) : View(context, attrs) {
     private var isShowTimeline = false
     private var isTouching = false
     private var isFling = false
-    private var marginTop = 300f
+    private var topOffset = 300f
+
     /**
      * 歌词显示位置，靠左/居中/靠右
      */
@@ -204,7 +205,7 @@ class LrcView(context: Context, attrs: AttributeSet?) : View(context, attrs) {
         init(attrs)
     }
 
-    private fun init(attrs: AttributeSet?) {
+    protected open fun init(attrs: AttributeSet?) {
         val ta = context.obtainStyledAttributes(attrs, R.styleable.LrcView)
         mCurrentTextSize = ta.getDimension(
             R.styleable.LrcView_lrcTextSize,
@@ -229,15 +230,15 @@ class LrcView(context: Context, attrs: AttributeSet?) : View(context, attrs) {
             if (mAnimationDuration < 0) defDuration.toLong() else mAnimationDuration
         mNormalTextColor = ta.getColor(
             R.styleable.LrcView_lrcNormalTextColor,
-            R.color.lrc_normal_text_color.resColor()
+            context.getColor(R.color.lrc_normal_text_color)
         )
         mCurrentTextColor = ta.getColor(
             R.styleable.LrcView_lrcCurrentTextColor,
-            R.color.lrc_current_text_color.resColor()
+            context.getColor(R.color.lrc_current_text_color)
         )
         mTimelineTextColor = ta.getColor(
             R.styleable.LrcView_lrcTimelineTextColor,
-            R.color.lrc_timeline_text_color.resColor()
+            context.getColor(R.color.lrc_timeline_text_color)
         )
         mDefaultLabel = ta.getString(R.styleable.LrcView_lrcLabel)
         mDefaultLabel =
@@ -245,23 +246,23 @@ class LrcView(context: Context, attrs: AttributeSet?) : View(context, attrs) {
         mLrcPadding = ta.getDimension(R.styleable.LrcView_lrcPadding, 0f)
         mTimelineColor = ta.getColor(
             R.styleable.LrcView_lrcTimelineColor,
-            R.color.lrc_timeline_color.resColor()
+            context.getColor(R.color.lrc_timeline_color)
         )
         val timelineHeight = ta.getDimension(
             R.styleable.LrcView_lrcTimelineHeight,
             resources.getDimension(R.dimen.lrc_timeline_height)
         )
         mPlayDrawable = ta.getDrawable(R.styleable.LrcView_lrcPlayDrawable)
-//        mPlayDrawable = mPlayDrawable ?: R.drawable.ic_media_play.resDrawable()
         mTimeTextColor = ta.getColor(
             R.styleable.LrcView_lrcTimeTextColor,
-            R.color.lrc_time_text_color.resColor()
+            context.getColor(R.color.lrc_time_text_color)
         )
         val timeTextSize = ta.getDimension(
             R.styleable.LrcView_lrcTimeTextSize,
             resources.getDimension(R.dimen.lrc_time_text_size)
         )
         mTextGravity = ta.getInteger(R.styleable.LrcView_lrcTextGravity, LrcEntry.GRAVITY_CENTER)
+        topOffset = ta.getDimension(R.styleable.LrcView_lrcTopOffset, 300f)
         ta.recycle()
         mDrawableWidth = resources.getDimension(R.dimen.lrc_drawable_width).toInt()
         mTimeTextWidth = resources.getDimension(R.dimen.lrc_time_width).toInt()
@@ -291,14 +292,14 @@ class LrcView(context: Context, attrs: AttributeSet?) : View(context, attrs) {
     /**
      * 普通歌词文本字体大小
      */
-    fun setNormalTextSize(size: Float) {
+    open fun setNormalTextSize(size: Float) {
         mNormalTextSize = size
     }
 
     /**
      * 当前歌词文本字体大小
      */
-    fun setCurrentTextSize(size: Float) {
+    open fun setCurrentTextSize(size: Float) {
         mCurrentTextSize = size
     }
 
@@ -379,6 +380,10 @@ class LrcView(context: Context, attrs: AttributeSet?) : View(context, attrs) {
         invalidate()
     }
 
+    open fun setTopOffset(offset: Float) {
+        topOffset = offset
+        invalidate()
+    }
 
     /**
      * 歌词是否有效
@@ -409,6 +414,19 @@ class LrcView(context: Context, attrs: AttributeSet?) : View(context, attrs) {
         }
     }
 
+    open fun setTextGravity(gravity: Int) {
+        mTextGravity = gravity
+        mLrcEntryList.forEach { lrcEntry ->
+            lrcEntry.init(mLrcPaint, getLrcWidth().toInt(), mTextGravity)
+        }
+        invalidate()
+    }
+
+    open fun setLrcDividerHeight(dividerHeight: Float) {
+        mDividerHeight = dividerHeight
+        invalidate()
+    }
+
     override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
         super.onLayout(changed, left, top, right, bottom)
         if (changed) {
@@ -423,7 +441,7 @@ class LrcView(context: Context, attrs: AttributeSet?) : View(context, attrs) {
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
 
-        val centerY = height / 2
+        val centerY = topOffset
 
         // 无歌词文件
         if (!hasLrc()) {
@@ -451,9 +469,9 @@ class LrcView(context: Context, attrs: AttributeSet?) : View(context, attrs) {
             mTimePaint.color = mTimelineColor
             canvas.drawLine(
                 mTimeTextWidth.toFloat(),
-                centerY.toFloat(),
+                centerY,
                 (width - mTimeTextWidth).toFloat(),
-                centerY.toFloat(),
+                centerY,
                 mTimePaint
             )
 
@@ -475,12 +493,24 @@ class LrcView(context: Context, attrs: AttributeSet?) : View(context, attrs) {
             if (i == mCurrentLine) {
                 mLrcPaint.textSize = mCurrentTextSize
                 mLrcPaint.color = mCurrentTextColor
+                mLrcPaint.typeface = android.graphics.Typeface.create(
+                    android.graphics.Typeface.DEFAULT,
+                    android.graphics.Typeface.BOLD
+                )
             } else if (isShowTimeline && i == centerLine) {
                 mLrcPaint.textSize = mCurrentTextSize
                 mLrcPaint.color = mTimelineTextColor
+                mLrcPaint.typeface = android.graphics.Typeface.create(
+                    android.graphics.Typeface.DEFAULT,
+                    android.graphics.Typeface.NORMAL
+                )
             } else {
                 mLrcPaint.textSize = mNormalTextSize
                 mLrcPaint.color = mNormalTextColor
+                mLrcPaint.typeface = android.graphics.Typeface.create(
+                    android.graphics.Typeface.DEFAULT,
+                    android.graphics.Typeface.NORMAL
+                )
             }
             drawText(canvas, mLrcEntryList[i].getStaticLayout(), y)
         }
@@ -491,7 +521,7 @@ class LrcView(context: Context, attrs: AttributeSet?) : View(context, attrs) {
      *
      * @param y 歌词中心 Y 坐标
      */
-    private fun drawText(canvas: Canvas, staticLayout: StaticLayout?, y: Float) {
+    protected open fun drawText(canvas: Canvas, staticLayout: StaticLayout?, y: Float) {
         canvas.save()
         canvas.translate(mLrcPadding, y - ((staticLayout?.height ?: 0) shr 1))
         staticLayout?.draw(canvas)
@@ -545,7 +575,7 @@ class LrcView(context: Context, attrs: AttributeSet?) : View(context, attrs) {
         job?.cancel()
     }
 
-    private fun onLrcLoaded(entryList: List<LrcEntry>?) {
+    protected open fun onLrcLoaded(entryList: List<LrcEntry>?) {
         if (!entryList.isNullOrEmpty()) {
             mLrcEntryList.addAll(entryList)
         }
@@ -554,27 +584,25 @@ class LrcView(context: Context, attrs: AttributeSet?) : View(context, attrs) {
         invalidate()
     }
 
-    private fun initPlayDrawable() {
+    protected open fun initPlayDrawable() {
         val l = (mTimeTextWidth - mDrawableWidth) / 2
-        val t = height / 2 - mDrawableWidth / 2
+        val t = topOffset - mDrawableWidth / 2
         val r = l + mDrawableWidth
         val b = t + mDrawableWidth
-        mPlayDrawable?.setBounds(l, t, r, b)
+        mPlayDrawable?.setBounds(l, t.toInt(), r, b.toInt())
     }
 
-    private fun initEntryList() {
+    protected open fun initEntryList() {
         if (!hasLrc() || width == 0) {
             return
         }
-
-        for (lrcEntry in mLrcEntryList) {
+        mLrcEntryList.forEach { lrcEntry ->
             lrcEntry.init(mLrcPaint, getLrcWidth().toInt(), mTextGravity)
         }
-
-        mOffset = marginTop
+        mOffset = topOffset
     }
 
-    private fun reset() {
+    protected fun reset() {
         endAnimation()
         mScroller?.forceFinished(true)
         isShowTimeline = false
@@ -630,7 +658,7 @@ class LrcView(context: Context, attrs: AttributeSet?) : View(context, attrs) {
     /**
      * 二分法查找当前时间应该显示的行数（最后一个 <= time 的行数）
      */
-    private fun findShowLine(time: Long): Int {
+    protected open fun findShowLine(time: Long): Int {
         var left = 0
         var right = mLrcEntryList.size - 1
         while (left <= right) {
@@ -654,7 +682,7 @@ class LrcView(context: Context, attrs: AttributeSet?) : View(context, attrs) {
     /**
      * 获取当前在视图中央的行数
      */
-    private fun getCenterLine(): Int {
+    protected open fun getCenterLine(): Int {
         var centerLine = 0
         var minDistance = Float.MAX_VALUE
         for (i in mLrcEntryList.indices) {
@@ -670,9 +698,9 @@ class LrcView(context: Context, attrs: AttributeSet?) : View(context, attrs) {
      * 获取歌词距离视图顶部的距离
      * 采用懒加载方式
      */
-    private fun getOffset(line: Int): Float {
+    protected open fun getOffset(line: Int): Float {
         if (mLrcEntryList[line].getOffset() == Float.MIN_VALUE) {
-            var offset = (height / 2).toFloat()
+            var offset = topOffset
             for (i in 1..line) {
                 offset -= ((mLrcEntryList[i - 1].getHeight() + mLrcEntryList[i].getHeight()) shr 1) + mDividerHeight
             }
@@ -698,10 +726,10 @@ class LrcView(context: Context, attrs: AttributeSet?) : View(context, attrs) {
     }
 
     @OptIn(DelicateCoroutinesApi::class)
-    private val singleThreadContext = newSingleThreadContext("SingleThreadContext")
-    private val scope = CoroutineScope(singleThreadContext)
-    private var job: Job? = null
-    fun loadLrc(mainLrcText: String) {
+    protected val singleThreadContext = newSingleThreadContext("SingleThreadContext")
+    protected val scope = CoroutineScope(singleThreadContext)
+    protected var job: Job? = null
+    open fun loadLrc(mainLrcText: String) {
         job?.cancel()
         reset()
         val sb = StringBuilder("file://")

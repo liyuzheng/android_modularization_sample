@@ -1,10 +1,6 @@
 package yz.l.fm.lrcview
 
-import android.text.TextUtils
 import android.text.format.DateUtils
-import java.io.*
-import java.net.HttpURLConnection
-import java.net.URL
 import java.util.Locale
 import java.util.regex.Pattern
 
@@ -18,46 +14,19 @@ object LrcUtils {
     private val PATTERN_TIME = Pattern.compile("\\[(\\d\\d):(\\d\\d)\\.(\\d{2,3})]")
 
     /**
-     * 从文件解析歌词
-     */
-    private fun parseLrc(lrcFile: File?): List<LrcEntry>? {
-        if (lrcFile == null || !lrcFile.exists()) {
-            return null
-        }
-
-        val entryList = mutableListOf<LrcEntry>()
-        try {
-            BufferedReader(InputStreamReader(FileInputStream(lrcFile), "utf-8")).use { br ->
-                var line: String?
-                while (br.readLine().also { line = it } != null) {
-                    val list = parseLine(line)
-                    if (list != null && list.isNotEmpty()) {
-                        entryList.addAll(list)
-                    }
-                }
-            }
-        } catch (e: IOException) {
-            e.printStackTrace()
-        }
-
-        entryList.sort()
-        return entryList
-    }
-
-    /**
      * 从文本解析歌词
      */
     fun parseLrc(lrcText: String?): List<LrcEntry>? {
-        if (TextUtils.isEmpty(lrcText)) {
+        if (lrcText.isNullOrBlank()) {
             return null
         }
         var text = lrcText
-        if (text?.startsWith("\uFEFF") == true) {
+        if (text.startsWith("\uFEFF")) {
             text = text.replace("\uFEFF", "")
         }
         val entryList = mutableListOf<LrcEntry>()
         val array =
-            text?.split("\n".toRegex())?.dropLastWhile { it.isEmpty() }?.toTypedArray() ?: arrayOf()
+            text.split("\n".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
         for (line in array) {
             val list = parseLine(line)
             if (!list.isNullOrEmpty()) {
@@ -67,17 +36,18 @@ object LrcUtils {
         entryList.sort()
         return entryList
     }
+
     /**
      * 解析一行歌词
      */
     private fun parseLine(line: String?): List<LrcEntry>? {
-        if (TextUtils.isEmpty(line)) {
+        if (line.isNullOrBlank()) {
             return null
         }
 
-        val trimmedLine = line?.trim()
-        val lineMatcher = trimmedLine?.let { PATTERN_LINE.matcher(it) }
-        if (lineMatcher?.matches() != true) {
+        val trimmedLine = line.trim()
+        val lineMatcher = trimmedLine.let { PATTERN_LINE.matcher(it) }
+        if (!lineMatcher.matches()) {
             return null
         }
 

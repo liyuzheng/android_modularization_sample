@@ -79,6 +79,7 @@ dependencies {
     implementation project(":core:network")
     implementation project(":core:core_tool")
     implementation project(":core:core_mvvm")
+    implementation project(":core:weight:lrcview")
 
     implementation project(":data:data_user")
     implementation project(":data:data_common")
