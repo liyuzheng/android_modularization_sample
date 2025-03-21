@@ -7,4 +7,4 @@ plugins {
 }
 rootProject.ext.compileSdkVersion = 34
 rootProject.ext.targetSdkVersion = 34
-rootProject.ext.minSdkVersion = 21
+rootProject.ext.minSdkVersion = 23

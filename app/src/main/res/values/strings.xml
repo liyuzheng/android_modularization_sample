@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">配配</string>
+    <string name="root_default_lyric">暂无歌词</string>
 </resources>

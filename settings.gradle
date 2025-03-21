@@ -1,5 +1,12 @@
 pluginManagement {
     repositories {
+        maven { url 'https://repo.huaweicloud.com/repository/maven/' }
+        maven { url 'https://maven.aliyun.com/repository/public/' }
+        maven { url 'https://maven.aliyun.com/repository/google/' }
+        maven { url 'https://maven.aliyun.com/repository/public/' }
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
+        maven { url 'https://mirrors.cloud.tencent.com/android-repo/' }
+        maven { url 'https://mirrors.cloud.tencent.com/jcenter/' }
         google {
             content {
                 includeGroupByRegex("com\\.android.*")
@@ -14,6 +21,14 @@ pluginManagement {
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
+        maven { url 'https://repo.huaweicloud.com/repository/maven/' }
+        maven { url 'https://maven.aliyun.com/repository/public/' }
+        maven { url 'https://maven.aliyun.com/repository/google/' }
+        maven { url 'https://maven.aliyun.com/repository/public/' }
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
+        maven { url 'https://mirrors.cloud.tencent.com/android-repo/' }
+        maven { url 'https://mirrors.cloud.tencent.com/jcenter/' }
+        maven { url 'https://mirrors.cloud.tencent.com/maven/' }
         google()
         mavenCentral()
     }

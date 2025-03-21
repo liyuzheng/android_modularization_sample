@@ -12,15 +12,47 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/main"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <yz.l.common.view.navbottomview.BottomNavigationGroup
-            android:id="@+id/home_tab"
-            app:navBottomViewStyle="@style/HomeBottomNav"
+        android:layout_height="match_parent"
+        android:background="@color/black_80">
+        <ImageView
+            android:id="@+id/img1"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:layout_height="200dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="100dp"
+            app:layout_constraintWidth_percent="0.5"
+            />
+
+
+        <ImageView
+            android:id="@+id/img2"
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="100dp"
+            android:layout_marginStart="5dp"
+            app:layout_constraintStart_toEndOf="@id/img1"
+            app:layout_constraintWidth_percent="0.5"
+            />
+        <yz.l.fm.lrcview.LrcView
+            android:id="@+id/lrc"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:lrcAnimationDuration="200"
+            app:lrcCurrentTextColor="#FFFFFF"
+            app:lrcDividerHeight="20dp"
+            app:lrcLabel="找不到歌词(@_@)"
+            app:lrcNormalTextColor="#c7ffffff"
+            app:lrcNormalTextSize="48px"
+            app:lrcPadding="16dp"
+            app:lrcTextGravity="center"
+            app:lrcTextSize="64px"
+            app:lrcTimeTextColor="#00000000"
+            app:lrcTimelineColor="#00000000"
+            app:lrcTimelineTextColor="#c7ffffff"
+            app:lrcTimeTextSize="64px"
+            app:layout_constraintStart_toStartOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

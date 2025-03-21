@@ -61,7 +61,9 @@ dependencies {
     implementation libs.androidx.constraintlayout.constraintlayout
     implementation libs.com.google.auto.service.auto.service
     kapt libs.com.google.auto.service.auto.service
-
+    implementation libs.com.github.bumptech.glide.glide
+    implementation libs.jp.wasabeef.glide.transformations
+    kapt libs.com.github.bumptech.glide.compiler
 
     implementation project(":features:feature_login")
     implementation project(":features:feature_lottery")

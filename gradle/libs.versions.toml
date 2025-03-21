@@ -4,6 +4,7 @@ kotlin = "1.9.23"
 lifecycleKtx = "2.7.0"
 coreKtx = "1.13.0"
 glide = "4.16.0"
+glide_trans = "4.0.0"
 annotation = "1.7.1"
 appcompat = "1.6.1"
 fragmentKtx = "1.6.2"
@@ -47,6 +48,7 @@ com-google-code-gson-gson = { group = "com.google.code.gson", name = "gson", ver
 
 com-github-bumptech-glide-glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glide" }
 com-github-bumptech-glide-compiler = { group = "com.github.bumptech.glide", name = "compiler", version.ref = "glide" }
+jp-wasabeef-glide-transformations = {group = "jp.wasabeef" , name = "glide-transformations" , version.ref = "glide_trans"}
 
 com-tencent-mmkv-static = { group = "com.tencent", name = "mmkv-static", version.ref = "mmkv" }
 
