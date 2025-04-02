@@ -1,8 +1,5 @@
 package yz.l.fm.platformstrategy
 
-import android.os.Handler
-import android.os.Looper
-import android.os.Message
 import android.util.Log
 import com.google.auto.service.AutoService
 
@@ -14,7 +11,5 @@ import com.google.auto.service.AutoService
 class SamsungLogAction : DefaultLogAction() {
     override fun log() {
         Log.v("ssssss", "current is Samsung")
-        val a = Handler(Looper.getMainLooper())
-        a.sendMessage(Message.obtain())
     }
 }

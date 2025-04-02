@@ -15,11 +15,11 @@ import java.util.Date
  */
 open class LocalTypeConverter {
     @TypeConverter
-    fun json2StrListEntity(src: String?): List<String>? =
+    fun json2StrListEntity(src: String?): MutableList<String>? =
         src.toObject()
 
     @TypeConverter
-    fun strList2Json(data: List<String>?): String? = data?.toJson()
+    fun strList2Json(data: MutableList<String>?): String? = data?.toJson()
 
     @TypeConverter
     fun date2Long(date: Date?): Long {

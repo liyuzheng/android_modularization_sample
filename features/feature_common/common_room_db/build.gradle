@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.jetbrainsKotlinAndroid)
     alias(libs.plugins.kapt)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -35,7 +36,7 @@ dependencies {
     implementation libs.androidx.core.ktx
     implementation libs.androidx.appcompat.appcompat
     implementation libs.com.google.android.material.material
-    kapt libs.androidx.room.room.compiler
+    ksp libs.androidx.room.room.compiler
     implementation libs.androidx.room.room.runtime
     implementation libs.androidx.room.room.ktx
     implementation libs.androidx.room.room.paging

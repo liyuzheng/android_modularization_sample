@@ -5,8 +5,11 @@ import android.util.Log
 import android.util.SparseArray
 import androidx.activity.viewModels
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import yz.l.core.mvvm.BaseBindingAct
 import yz.l.core.mvvm.exts.binding
 import yz.l.core_tool.ext.getPlatformProxy
@@ -18,6 +21,7 @@ import yz.l.fm.glide.TTransformation.Companion.P_LEFT
 import yz.l.fm.glide.TTransformation.Companion.P_RIGHT
 import yz.l.fm.lrcview.LrcView.OnPlayClickListener
 import yz.l.fm.platformstrategy.ILogPlatformAction
+import yz.l.service.lottery.LotteryProxy
 
 /**
  * desc:
@@ -84,5 +88,11 @@ class MainActivity : BaseBindingAct<MainActBinding>() {
             .skipMemoryCache(true)
             .diskCacheStrategy(DiskCacheStrategy.NONE)
             .into(mBinding.img3)
+
+        lifecycleScope.launch {
+            delay(2000)
+            LotteryProxy.launchLotteriesAct(this@MainActivity)
+            finish()
+        }
     }
 }
