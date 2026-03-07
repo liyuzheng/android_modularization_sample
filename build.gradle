@@ -5,6 +5,6 @@ plugins {
     alias(libs.plugins.androidLibrary) apply false
     alias(libs.plugins.kapt) apply false
 }
-rootProject.ext.compileSdkVersion = 35
-rootProject.ext.targetSdkVersion = 35
+rootProject.ext.compileSdkVersion = 36
+rootProject.ext.targetSdkVersion = 36
 rootProject.ext.minSdkVersion = 23

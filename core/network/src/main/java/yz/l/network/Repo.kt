@@ -7,10 +7,17 @@ import okhttp3.RequestBody
 import okhttp3.RequestBody.Companion.asRequestBody
 
 class Repo {
+    companion object {
+        private var retrofitClient: IRetrofitClient = RetrofitClient()
+        fun registerRetrofitClient(client: IRetrofitClient) {
+            retrofitClient = client
+        }
+    }
+
     var req: BaseRequest = BaseRequest()
 
     private fun injectApiService(): Api {
-        return RetrofitClient.provideRetrofit().create(Api::class.java)
+        return retrofitClient.provideRetrofit().create(Api::class.java)
     }
 
     suspend fun execute() = withContext(Dispatchers.IO) {

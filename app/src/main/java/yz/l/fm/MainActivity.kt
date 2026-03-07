@@ -42,18 +42,19 @@ class MainActivity : BaseBindingAct<MainActBinding>() {
 
     override fun setup() {
         super.setup()
+        logProxy.log()
 //        LotteryProxy.launchLotteriesActAuto(this)
 //        val s = LrcUtils.parseLrc(lyricTxt)
 //        s?.forEach {
 //            Log.d("MainActivity", "[${it.getTime()}] ${it.getText()}")
 //        }
-        mBinding.lrc.loadLrc(lyricTxt)
-        mBinding.lrc.setDraggable(true, object : OnPlayClickListener {
-            override fun onPlayClick(view: yz.l.fm.lrcview.LrcView, time: Long): Boolean {
-                Log.d("LrcView", "onPlayClick")
-                return true
-            }
-        })
+//        mBinding.lrc.loadLrc(lyricTxt)
+//        mBinding.lrc.setDraggable(true, object : OnPlayClickListener {
+//            override fun onPlayClick(view: yz.l.fm.lrcview.LrcView, time: Long): Boolean {
+//                Log.d("LrcView", "onPlayClick")
+//                return true
+//            }
+//        })
         var t = 0L
 //        lifecycleScope.launch {
 //            repeat(10000) {
@@ -69,7 +70,7 @@ class MainActivity : BaseBindingAct<MainActBinding>() {
 
         Glide.with(mBinding.img1)
             .load(url)
-            .override(50,50)
+            .override(50, 50)
             .transform(TTransformation(P_LEFT, colorFilter))
             .skipMemoryCache(true)
             .diskCacheStrategy(DiskCacheStrategy.NONE)
@@ -88,11 +89,10 @@ class MainActivity : BaseBindingAct<MainActBinding>() {
             .skipMemoryCache(true)
             .diskCacheStrategy(DiskCacheStrategy.NONE)
             .into(mBinding.img3)
-
-        lifecycleScope.launch {
-            delay(2000)
-            LotteryProxy.launchLotteriesAct(this@MainActivity)
-            finish()
-        }
+//        lifecycleScope.launch {
+//            delay(2000)
+//            LotteryProxy.launchLotteriesAct(this@MainActivity)
+//            finish()
+//        }
     }
 }
