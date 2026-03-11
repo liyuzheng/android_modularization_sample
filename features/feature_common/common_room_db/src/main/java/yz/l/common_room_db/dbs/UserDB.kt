@@ -1,9 +1,12 @@
-package yz.l.data_user
+package yz.l.common_room_db.dbs
 
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import yz.l.common_room_db.RoomDB
 import yz.l.common_room_db.dao.UserDao
+import yz.l.common_room_db.exts.toEntity
+import yz.l.common_room_db.exts.toUserModel
+import yz.l.data_user.UserModel
 
 /**
  * desc:

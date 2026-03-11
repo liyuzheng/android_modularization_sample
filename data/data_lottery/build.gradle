@@ -21,29 +21,22 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    
 }
 
 dependencies {
     implementation libs.androidx.core.ktx
-    implementation libs.androidx.appcompat.appcompat
-    implementation libs.com.google.android.material.material
     implementation libs.com.tencent.mmkv.static
-    implementation libs.androidx.paging.paging.runtime
     implementation libs.com.google.code.gson.gson
-    implementation libs.androidx.room.room.runtime
-    implementation libs.androidx.room.room.ktx
-    compileOnly project(":core:core_tool")
+    implementation libs.androidx.paging.paging.runtime
     compileOnly project(":core:network")
-    compileOnly project(":features:feature_common:common_room_db")
-    compileOnly project(":features:feature_common:common_paging")
-    compileOnly project(":data:data_common")
-
+    compileOnly project(":core:core_tool")
 }

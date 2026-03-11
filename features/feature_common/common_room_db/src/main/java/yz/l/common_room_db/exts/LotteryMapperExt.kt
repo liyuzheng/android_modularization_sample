@@ -1,6 +1,7 @@
-package yz.l.data.lottery
+package yz.l.common_room_db.exts
 
 import yz.l.common_room_db.eneities.LotteryEntity
+import yz.l.data.lottery.LotteryModel
 
 /**
  * desc:

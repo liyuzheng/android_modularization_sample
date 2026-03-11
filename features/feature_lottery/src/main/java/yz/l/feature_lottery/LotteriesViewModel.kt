@@ -12,9 +12,9 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flatMapLatest
 import yz.l.common_paging.ext.request
 import yz.l.core.mvvm.BaseViewModel
-import yz.l.data.lottery.LotteryDB
+import yz.l.common_room_db.dbs.LotteryDB
 import yz.l.data.lottery.LotteryModel
-import yz.l.data.lottery.toLotteryModel
+import yz.l.common_room_db.exts.toLotteryModel
 
 /**
  * desc:

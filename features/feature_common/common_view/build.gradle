@@ -21,17 +21,19 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
     buildFeatures {
         dataBinding true
     }
-    
 }
 
 dependencies {
@@ -39,7 +41,6 @@ dependencies {
     implementation libs.androidx.appcompat.appcompat
     implementation libs.com.google.android.material.material
     implementation libs.androidx.constraintlayout.constraintlayout
-
     compileOnly project(":core:core_tool")
     compileOnly project(":core:core_mvvm")
     compileOnly project(":features:feature_common:common_style")

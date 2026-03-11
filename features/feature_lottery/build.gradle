@@ -21,17 +21,19 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
     buildFeatures {
         dataBinding true
     }
-
 }
 
 dependencies {
@@ -47,14 +49,14 @@ dependencies {
     implementation libs.androidx.room.room.runtime
     implementation libs.androidx.room.room.ktx
     implementation libs.androidx.room.room.paging
-    implementation project(":services:service_lottery")
-    implementation project(":features:feature_common:common_paging")
-    implementation project(":features:feature_common:common_room_db")
-    implementation project(":core:core_router")
-    implementation project(":core:network")
-    implementation project(":core:core_tool")
-    implementation project(":core:core_mvvm")
-    implementation project(":data:data_lottery")
-    implementation project(":data:data_common")
-
+    compileOnly project(":services:service_lottery")
+    compileOnly project(":services:service_login")
+    compileOnly project(":features:feature_common:common_paging")
+    compileOnly project(":features:feature_common:common_room_db")
+    compileOnly project(":core:core_router")
+    compileOnly project(":core:network")
+    compileOnly project(":core:core_tool")
+    compileOnly project(":core:core_mvvm")
+    compileOnly project(":data:data_lottery")
+    compileOnly project(":data:data_user")
 }

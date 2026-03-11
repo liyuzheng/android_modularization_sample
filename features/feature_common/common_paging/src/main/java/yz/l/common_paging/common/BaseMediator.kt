@@ -1,7 +1,7 @@
 package yz.l.common_paging.common
 
 import androidx.paging.*
-import yz.l.data.common.RemoteDB
+import yz.l.common_paging.local.RemoteDB
 import yz.l.network.ResponseEmpty
 import yz.l.network.ext.toResponseException
 

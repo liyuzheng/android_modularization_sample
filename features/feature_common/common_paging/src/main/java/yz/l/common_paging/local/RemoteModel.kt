@@ -1,4 +1,4 @@
-package yz.l.data.common
+package yz.l.common_paging.local
 
 /**
  * desc:

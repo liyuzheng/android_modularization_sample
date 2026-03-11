@@ -6,12 +6,12 @@ import androidx.room.withTransaction
 import yz.l.common_paging.common.BaseRemoteMediator
 import yz.l.common_room_db.RoomDB
 import yz.l.common_room_db.eneities.LotteryEntity
-import yz.l.data.common.RemoteDB
-import yz.l.data.common.RemoteModel
-import yz.l.data.lottery.LotteryDB
+import yz.l.common_paging.local.RemoteDB
+import yz.l.common_paging.local.RemoteModel
+import yz.l.common_room_db.dbs.LotteryDB
 import yz.l.data.lottery.LotteryList
 import yz.l.data.lottery.LotteryModel
-import yz.l.data.lottery.toLotteryEntity
+import yz.l.common_room_db.exts.toLotteryEntity
 import yz.l.network.ext.repo
 import yz.l.network.ext.request
 

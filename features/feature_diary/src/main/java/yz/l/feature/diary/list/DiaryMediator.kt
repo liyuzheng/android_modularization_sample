@@ -7,10 +7,10 @@ import yz.l.common_paging.common.BaseRemoteMediator
 import yz.l.common_room_db.RoomDB
 import yz.l.common_room_db.eneities.LotteryEntity
 import yz.l.core_tool.utils.CalendarUtil
-import yz.l.data.common.RemoteDB
-import yz.l.data.diary.DiaryDB
+import yz.l.common_paging.local.RemoteDB
+import yz.l.common_room_db.dbs.DiaryDB
 import yz.l.data.diary.DiaryModel
-import yz.l.data.diary.PagingDiaryDB
+import yz.l.common_room_db.dbs.PagingDiaryDB
 import yz.l.data.diary.PagingDiaryModel
 
 /**

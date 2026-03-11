@@ -1,4 +1,4 @@
-package yz.l.data.common
+package yz.l.common_paging.local
 
 import yz.l.common_room_db.eneities.RemoteEntity
 

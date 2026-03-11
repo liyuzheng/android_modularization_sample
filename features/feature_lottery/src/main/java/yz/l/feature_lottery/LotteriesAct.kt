@@ -5,6 +5,7 @@ import android.view.ViewGroup.LayoutParams
 import androidx.activity.viewModels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.viewModelScope
 import androidx.paging.LoadState
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.collectLatest
@@ -18,9 +19,12 @@ import yz.l.common_paging.ext.concat
 import yz.l.common_paging.ext.setup
 import yz.l.core.mvvm.BaseBindingAct
 import yz.l.core.mvvm.exts.binding
+import yz.l.core_router.Router
 import yz.l.core_tool.ext.sparse
 import yz.l.core_tool.ext.toFlow
 import yz.l.feature_lottery.databinding.LotteriedActBinding
+import yz.l.service_login.LoginService
+import yz.l.service_login.LoginServicePath
 
 /**
  * desc:
@@ -29,10 +33,12 @@ import yz.l.feature_lottery.databinding.LotteriedActBinding
 class LotteriesAct : BaseBindingAct<LotteriedActBinding>() {
     override val mBinding by binding<LotteriedActBinding>(R.layout.lotteried_act)
     private val mViewModel by viewModels<LotteriesViewModel>()
+    private val loginProxy by lazy { Router.getProvider(LoginServicePath.LOGIN_SERVICE_PATH_CODE) as LoginService }
     override fun setupView() {
         super.setupView()
         setupRv()
         setupSearch()
+        val loginObs = loginProxy.getLoginStateObs().launchIn(mViewModel.viewModelScope)
     }
 
     override fun variables(): SparseArray<ViewModel> {

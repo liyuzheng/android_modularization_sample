@@ -21,10 +21,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = '1.8'
     }
@@ -32,7 +34,6 @@ android {
      buildFeatures {
         dataBinding true
     }
-    
 }
 
 dependencies {
@@ -43,5 +44,4 @@ dependencies {
     implementation libs.androidx.room.room.runtime
     compileOnly project(":features:feature_common:common_room_db")
     compileOnly project(":core:network")
-    compileOnly project(":data:data_common")
 }

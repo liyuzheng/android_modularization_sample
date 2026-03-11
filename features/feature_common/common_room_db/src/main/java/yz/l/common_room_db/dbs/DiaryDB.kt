@@ -1,8 +1,11 @@
-package yz.l.data.diary
+package yz.l.common_room_db.dbs
 
 import yz.l.common_room_db.RoomDB
 import yz.l.common_room_db.dao.DiaryDao
 import yz.l.common_room_db.eneities.DiaryEntity
+import yz.l.common_room_db.exts.toDiaryEntity
+import yz.l.common_room_db.exts.toDiaryModel
+import yz.l.data.diary.DiaryModel
 
 /**
  * desc:

@@ -1,4 +1,4 @@
-package yz.l.data.lottery
+package yz.l.common_room_db.dbs
 
 import yz.l.common_room_db.RoomDB
 import yz.l.common_room_db.dao.LotteryDao

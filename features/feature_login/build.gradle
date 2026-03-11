@@ -21,10 +21,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = '1.8'
     }
@@ -32,7 +34,6 @@ android {
      buildFeatures {
         dataBinding true
     }
-    
 }
 
 dependencies {
@@ -41,12 +42,10 @@ dependencies {
     implementation libs.com.google.android.material.material
     implementation libs.androidx.lifecycle.viewmodel.ktx
     implementation libs.androidx.fragment.fragment.ktx
-
-    implementation project(":core:core_router")
-    implementation project(":services:service_login")
-    implementation project(":core:core_mvvm")
-    implementation project(":core:core_tool")
-    implementation project(":core:network")
-    implementation project(":data:data_common")
-    implementation project(":data:data_user")
+    compileOnly project(":core:core_router")
+    compileOnly project(":services:service_login")
+    compileOnly project(":core:core_mvvm")
+    compileOnly project(":core:core_tool")
+    compileOnly project(":core:network")
+    compileOnly project(":data:data_user")
 }

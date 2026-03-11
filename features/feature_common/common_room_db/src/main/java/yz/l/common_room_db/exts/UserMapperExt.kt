@@ -1,6 +1,7 @@
-package yz.l.data_user
+package yz.l.common_room_db.exts
 
 import yz.l.common_room_db.eneities.UserEntity
+import yz.l.data_user.UserModel
 
 /**
  * desc:

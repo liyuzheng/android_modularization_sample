@@ -1,7 +1,9 @@
-package yz.l.data.diary
+package yz.l.common_room_db.dbs
 
 import yz.l.common_room_db.RoomDB
 import yz.l.common_room_db.dao.PagingDiaryDao
+import yz.l.common_room_db.exts.toPagingDiaryEntity
+import yz.l.data.diary.PagingDiaryModel
 
 /**
  * desc:
