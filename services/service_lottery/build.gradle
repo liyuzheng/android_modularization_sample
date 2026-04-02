@@ -36,4 +36,5 @@ dependencies {
     implementation libs.androidx.appcompat.appcompat
     implementation libs.com.google.android.material.material
     compileOnly project(":core:core_router")
+    compileOnly project(":core:core_tool")
 }

@@ -42,7 +42,7 @@ object RoomDB {
                 "android_room_db.db" //数据库名称
             )
                 .allowMainThreadQueries() //允许启用同步查询，即：允许主线程可以查询数据库，这个配置要视情况使用，一般不推荐同步查询
-                .fallbackToDestructiveMigration()//如果数据库升级失败了，删除重新创建
+                .fallbackToDestructiveMigration(false)//如果数据库升级失败了，删除重新创建
                 .enableMultiInstanceInvalidation()//多进程查询支持
 //                .addMigrations(MIGRATION_1_2) //数据库版本升级，MIGRATION_1_2为要执行的表格执行sql语句，例如database.execSQL("ALTER TABLE localCacheMusic ADD COLUMN time Int NOT NULL default 0 ;")
                 .build()

@@ -2,6 +2,7 @@ package yz.l.service.lottery
 
 import android.content.Context
 import yz.l.core_router.Router
+import yz.l.core_tool.ext.runWhenNotNull
 import java.util.ServiceLoader
 
 /**
@@ -13,8 +14,8 @@ object LotteryProxy {
         Router.getProvider(LotteryServicePath.LOTTERY_SERVICE_PATH_CODE) as LotteryService
     }
 
-    private val providerAuto by lazy {
-        ServiceLoader.load(LotteryServiceAuto::class.java).toList()[0]
+    private val providerAuto: LotteryServiceAuto? by lazy {
+        ServiceLoader.load(LotteryServiceAuto::class.java).toMutableList().getOrNull(0)
     }
 
     fun launchLotteriesAct(context: Context) {
@@ -22,6 +23,9 @@ object LotteryProxy {
     }
 
     fun launchLotteriesActAuto(context: Context) {
-        providerAuto.launchLotteriesAct(context)
+        providerAuto.runWhenNotNull("LotteryServiceAuto does not impl") {
+            it.launchLotteriesAct(context)
+        }
+
     }
 }

@@ -38,7 +38,6 @@ class LotteriesAct : BaseBindingAct<LotteriedActBinding>() {
         super.setupView()
         setupRv()
         setupSearch()
-        val loginObs = loginProxy.getLoginStateObs().launchIn(mViewModel.viewModelScope)
     }
 
     override fun variables(): SparseArray<ViewModel> {
